@@ -2,7 +2,7 @@
 {
     "name": "taruvi-ui-sampler",
     "compatibility_date":"2026-02-04",
-    "html_handling": "none",
+    "not_found_handling": "single-page-application",
     "assets": {
         "directory": "./dist"
     }
