@@ -13,6 +13,13 @@ const LightTheme = createTheme({
         },
       },
     },
+    MuiCard: {
+      styleOverrides: {
+        root: {
+          borderRadius: 16,
+        },
+      },
+    },
     MuiCssBaseline: {
       styleOverrides: {
         "main.MuiBox-root": {
@@ -40,6 +47,13 @@ const DarkTheme = createTheme({
       styleOverrides: {
         labelSmall: {
           lineHeight: "18px",
+        },
+      },
+    },
+    MuiCard: {
+      styleOverrides: {
+        root: {
+          borderRadius: 16,
         },
       },
     },
