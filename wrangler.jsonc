@@ -1,0 +1,7 @@
+// wrangler.jsonc
+{
+    "name": "taruvi-ui-sampler",
+    "assets": {
+        "directory": "./dist"
+    }
+}
