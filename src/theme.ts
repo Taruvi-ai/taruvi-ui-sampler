@@ -1,9 +1,23 @@
 import { createTheme, responsiveFontSizes } from "@mui/material/styles";
 import gray from "@mui/material/colors/grey";
 
+const titleFontFamily = "\"Quicksand\", \"Open Sans\", \"Helvetica\", \"Arial\", sans-serif";
+const bodyFontFamily = "\"Open Sans\", \"Helvetica\", \"Arial\", sans-serif";
+
 const LightTheme = createTheme({
   palette: {
     mode: "light",
+  },
+  typography: {
+    fontFamily: bodyFontFamily,
+    h1: { fontFamily: titleFontFamily },
+    h2: { fontFamily: titleFontFamily },
+    h3: { fontFamily: titleFontFamily },
+    h4: { fontFamily: titleFontFamily },
+    h5: { fontFamily: titleFontFamily },
+    h6: { fontFamily: titleFontFamily },
+    subtitle1: { fontFamily: titleFontFamily },
+    subtitle2: { fontFamily: titleFontFamily },
   },
   components: {
     MuiChip: {
@@ -41,6 +55,17 @@ const LightTheme = createTheme({
 const DarkTheme = createTheme({
   palette: {
     mode: "dark",
+  },
+  typography: {
+    fontFamily: bodyFontFamily,
+    h1: { fontFamily: titleFontFamily },
+    h2: { fontFamily: titleFontFamily },
+    h3: { fontFamily: titleFontFamily },
+    h4: { fontFamily: titleFontFamily },
+    h5: { fontFamily: titleFontFamily },
+    h6: { fontFamily: titleFontFamily },
+    subtitle1: { fontFamily: titleFontFamily },
+    subtitle2: { fontFamily: titleFontFamily },
   },
   components: {
     MuiChip: {
