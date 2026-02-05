@@ -123,7 +123,7 @@ const headerTypography = {
 
 const bodyTypography = {
   body1: {
-    fontSize: `${baseFontSize}px`,
+    fontSize: "14px",
     lineHeight: 1.6,
   },
   body2: {
