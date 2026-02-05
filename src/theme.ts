@@ -1,5 +1,53 @@
 import { createTheme, responsiveFontSizes } from "@mui/material/styles";
 
+const primaryPalette = {
+  300: "#64b5f6",
+  400: "#42a5f5",
+  600: "#1e88e5",
+  700: "#1976d2",
+  800: "#1565c0",
+};
+
+const secondaryPalette = {
+  300: "#ba68c8",
+  500: "#9c27b0",
+  600: "#8e24aa",
+  700: "#7b1fa2",
+  800: "#6a1b9a",
+};
+
+const successPalette = {
+  300: "#81c784",
+  500: "#4caf50",
+  700: "#388e3c",
+};
+
+const warningPalette = {
+  300: "#ffb74d",
+  500: "#ff9800",
+  700: "#f57c00",
+};
+
+const errorPalette = {
+  300: "#e57373",
+  500: "#f44336",
+  700: "#d32f2f",
+};
+
+const neutralPalette = {
+  50: "#fafafa",
+  200: "#eeeeee",
+  400: "#bdbdbd",
+  700: "#616161",
+  800: "#424242",
+  900: "#212121",
+};
+
+const shadesPalette = {
+  0: "#ffffff",
+  100: "#000000",
+};
+
 const titleFontFamily = "\"Quicksand\", sans-serif";
 const bodyFontFamily = "\"Open Sans\", \"Helvetica\", \"Arial\", sans-serif";
 
