@@ -97,6 +97,12 @@ const quicksandFontImport = {
   "@import": "url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap')",
 };
 
+const baseFontSize = 16;
+const typeScaleRatio = 1.25;
+
+const scale = (step: number) =>
+  `${Number((baseFontSize * Math.pow(typeScaleRatio, step)).toFixed(3))}px`;
+
 const headerTypography = {
   h1: { ...quicksandTitleStyles, fontWeight: 300 },
   h2: { ...quicksandTitleStyles, fontWeight: 300 },
@@ -182,6 +188,7 @@ const LightTheme = createTheme({
       fontWeight: 600,
     },
     ...headerTypography,
+    ...bodyTypography,
   },
   components: {
     MuiPaper: {
@@ -279,7 +286,7 @@ const LightTheme = createTheme({
     },
     MuiTypography: {
       defaultProps: {
-        variant: "body2",
+        variant: "body1",
       },
     },
     MuiTableCell: {
@@ -358,6 +365,7 @@ const DarkTheme = createTheme({
       fontWeight: 600,
     },
     ...headerTypography,
+    ...bodyTypography,
   },
   components: {
     MuiPaper: {
@@ -455,7 +463,7 @@ const DarkTheme = createTheme({
     },
     MuiTypography: {
       defaultProps: {
-        variant: "body2",
+        variant: "body1",
       },
     },
     MuiTableCell: {
