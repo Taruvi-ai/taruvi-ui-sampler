@@ -96,71 +96,58 @@ const bodyFontFamily = "\"Open Sans\", \"Helvetica\", \"Arial\", sans-serif";
 const quicksandTitleStyles = {
   fontFamily: titleFontFamily,
   fontOpticalSizing: "auto",
-  fontWeight: 700,
+  fontWeight: 600,
   fontStyle: "normal",
 };
 
+const quicksandFontImport = {
+  "@import": "url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap')",
+};
+
+const baseFontSize = 16;
+const typeScaleRatio = 1.25;
+
+const scale = (step: number) =>
+  `${Number((baseFontSize * Math.pow(typeScaleRatio, step)).toFixed(3))}px`;
+
 const headerTypography = {
-  h1: { ...quicksandTitleStyles },
-  h2: { ...quicksandTitleStyles },
-  h3: { ...quicksandTitleStyles },
-  h4: { ...quicksandTitleStyles },
-  h5: { ...quicksandTitleStyles },
-  h6: { ...quicksandTitleStyles },
-  subtitle1: { ...quicksandTitleStyles },
-  subtitle2: { ...quicksandTitleStyles },
+  h1: { ...quicksandTitleStyles, fontWeight: 300, fontSize: scale(3), lineHeight: 1.15 },
+  h2: { ...quicksandTitleStyles, fontWeight: 300, fontSize: scale(2), lineHeight: 1.2 },
+  h3: { ...quicksandTitleStyles, fontWeight: 400, fontSize: scale(1), lineHeight: 1.25 },
+  h4: { ...quicksandTitleStyles, fontWeight: 400, fontSize: scale(0), lineHeight: 1.3 },
+  h5: { ...quicksandTitleStyles, fontWeight: 500, fontSize: scale(-1), lineHeight: 1.4 },
+  h6: { ...quicksandTitleStyles, fontWeight: 600, fontSize: scale(-2), lineHeight: 1.4 },
+  subtitle1: { ...quicksandTitleStyles, fontWeight: 500 },
+  subtitle2: { ...quicksandTitleStyles, fontWeight: 600 },
 };
 
-const iconButtonTooltipStyles = {
-  position: "relative",
-  '&[aria-label]:not([aria-label=""])::after': {
-    content: "attr(aria-label)",
-    position: "absolute",
-    left: "50%",
-    bottom: "calc(100% + 8px)",
-    transform: "translateX(-50%) translateY(6px)",
-    opacity: 0,
-    visibility: "hidden",
-    pointerEvents: "none",
-    zIndex: 1,
-    padding: "4px 8px",
-    borderRadius: 6,
-    fontSize: "0.75rem",
-    fontWeight: 600,
-    lineHeight: 1.3,
-    whiteSpace: "nowrap",
-    transition: "opacity 120ms ease, transform 120ms ease, visibility 120ms ease",
+const bodyTypography = {
+  body1: {
+    fontSize: scale(-2),
+    lineHeight: 1.6,
   },
-  '&[aria-label]:not([aria-label=""]):hover::after, &[aria-label]:not([aria-label=""]):focus-visible::after': {
-    opacity: 1,
-    visibility: "visible",
-    transform: "translateX(-50%) translateY(0)",
+  body2: {
+    fontSize: scale(-3),
+    lineHeight: 1.55,
+  },
+  caption: {
+    fontSize: scale(-4),
+    lineHeight: 1.45,
   },
 };
 
-const tableCellAlignmentStyles = {
-  root: {
-    verticalAlign: "middle",
-    paddingTop: 14,
-    paddingBottom: 14,
-    lineHeight: 1.5,
-  },
-  head: {
-    ...quicksandTitleStyles,
-    whiteSpace: "nowrap",
-    letterSpacing: "0.02em",
-  },
-  body: {
-    whiteSpace: "nowrap",
-  },
+const enterpriseShape = {
+  borderRadius: 14,
 };
 
-const tableRowAlignmentStyles = {
-  root: {
-    '& > .MuiTableCell-root': {
-      borderBottomColor: "rgba(128, 128, 128, 0.22)",
-    },
-  },
+const lightSurfaces = {
+  elevated: "0 8px 24px rgba(15, 23, 42, 0.08)",
+  subtle: "0 2px 12px rgba(15, 23, 42, 0.06)",
+};
+
+const darkSurfaces = {
+  elevated: "0 10px 26px rgba(2, 6, 23, 0.45)",
+  subtle: "0 2px 14px rgba(2, 6, 23, 0.4)",
 };
 
 const primaryButtonOverrides = {
@@ -181,6 +168,16 @@ const primaryButtonOverrides = {
 };
 
 const LightTheme = createTheme({
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 600,
+      md: 900,
+      lg: 1200,
+      xl: 1440,
+    },
+  },
+  shape: enterpriseShape,
   palette: {
     mode: "light",
     primary: {
@@ -226,13 +223,41 @@ const LightTheme = createTheme({
   },
   typography: {
     fontFamily: bodyFontFamily,
+    fontWeightLight: 300,
+    fontWeightRegular: 500,
+    fontWeightMedium: 600,
+    fontWeightBold: 700,
+    body1: {
+      fontWeight: 500,
+    },
+    body2: {
+      fontWeight: 500,
+    },
+    button: {
+      fontWeight: 600,
+    },
     ...headerTypography,
+    ...bodyTypography,
   },
   components: {
+    MuiPaper: {
+      styleOverrides: {
+        root: {
+          borderRadius: 14,
+          border: `1px solid ${alpha(neutralPalette[300], 0.55)}`,
+          boxShadow: lightSurfaces.subtle,
+          backgroundImage: "none",
+        },
+      },
+    },
     MuiChip: {
       styleOverrides: {
         labelSmall: {
           lineHeight: "18px",
+        },
+        root: {
+          borderRadius: 999,
+          fontWeight: 600,
         },
       },
     },
@@ -246,6 +271,36 @@ const LightTheme = createTheme({
     },
     MuiCssBaseline: {
       styleOverrides: {
+        ...quicksandFontImport,
+        ".layout-grid-12": {
+          display: "grid",
+          gridTemplateColumns: "repeat(12, minmax(0, 1fr))",
+          gap: "clamp(12px, 2vw, 24px)",
+        },
+        ".layout-responsive-columns": {
+          display: "grid",
+          gridTemplateColumns: "1fr",
+          gap: "clamp(12px, 2vw, 24px)",
+          "@media (min-width:900px)": {
+            gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
+          },
+          "@media (min-width:1200px)": {
+            gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
+          },
+        },
+        ".layout-asymmetric": {
+          display: "grid",
+          gridTemplateColumns: "1fr",
+          gap: "clamp(16px, 2.5vw, 32px)",
+          "@media (min-width:1200px)": {
+            gridTemplateColumns: "minmax(0, 5fr) minmax(0, 7fr)",
+          },
+        },
+        ".layout-full-bleed": {
+          width: "100vw",
+          marginLeft: "calc(50% - 50vw)",
+          marginRight: "calc(50% - 50vw)",
+        },
         "main.MuiBox-root": {
           backgroundColor: shadesPalette[0],
         },
@@ -257,21 +312,27 @@ const LightTheme = createTheme({
     },
     MuiTypography: {
       defaultProps: {
-        variant: "body2",
+        variant: "body1",
+      },
+    },
+    MuiContainer: {
+      defaultProps: {
+        maxWidth: "xl",
+      },
+      styleOverrides: {
+        root: {
+          paddingLeft: "clamp(16px, 3vw, 32px)",
+          paddingRight: "clamp(16px, 3vw, 32px)",
+        },
       },
     },
     MuiTableCell: {
       styleOverrides: {
-        ...tableCellAlignmentStyles,
-      },
-    },
-    MuiTableRow: {
-      styleOverrides: {
-        ...tableRowAlignmentStyles,
-      },
-    },
-    MuiIconButton: {
-      styleOverrides: {
+        head: {
+          ...quicksandTitleStyles,
+          letterSpacing: 0.2,
+          borderBottom: `1px solid ${neutralPalette[300]}`,
+        },
         root: {
           ...iconButtonTooltipStyles,
           '&[aria-label]:not([aria-label=""])::after': {
@@ -302,6 +363,16 @@ const LightTheme = createTheme({
 });
 
 const DarkTheme = createTheme({
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 600,
+      md: 900,
+      lg: 1200,
+      xl: 1440,
+    },
+  },
+  shape: enterpriseShape,
   palette: {
     mode: "dark",
     primary: {
@@ -347,13 +418,41 @@ const DarkTheme = createTheme({
   },
   typography: {
     fontFamily: bodyFontFamily,
+    fontWeightLight: 300,
+    fontWeightRegular: 500,
+    fontWeightMedium: 600,
+    fontWeightBold: 700,
+    body1: {
+      fontWeight: 500,
+    },
+    body2: {
+      fontWeight: 500,
+    },
+    button: {
+      fontWeight: 600,
+    },
     ...headerTypography,
+    ...bodyTypography,
   },
   components: {
+    MuiPaper: {
+      styleOverrides: {
+        root: {
+          borderRadius: 14,
+          border: `1px solid ${alpha(neutralPalette[700], 0.7)}`,
+          boxShadow: darkSurfaces.subtle,
+          backgroundImage: "none",
+        },
+      },
+    },
     MuiChip: {
       styleOverrides: {
         labelSmall: {
           lineHeight: "18px",
+        },
+        root: {
+          borderRadius: 999,
+          fontWeight: 600,
         },
       },
     },
@@ -367,6 +466,36 @@ const DarkTheme = createTheme({
     },
     MuiCssBaseline: {
       styleOverrides: {
+        ...quicksandFontImport,
+        ".layout-grid-12": {
+          display: "grid",
+          gridTemplateColumns: "repeat(12, minmax(0, 1fr))",
+          gap: "clamp(12px, 2vw, 24px)",
+        },
+        ".layout-responsive-columns": {
+          display: "grid",
+          gridTemplateColumns: "1fr",
+          gap: "clamp(12px, 2vw, 24px)",
+          "@media (min-width:900px)": {
+            gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
+          },
+          "@media (min-width:1200px)": {
+            gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
+          },
+        },
+        ".layout-asymmetric": {
+          display: "grid",
+          gridTemplateColumns: "1fr",
+          gap: "clamp(16px, 2.5vw, 32px)",
+          "@media (min-width:1200px)": {
+            gridTemplateColumns: "minmax(0, 5fr) minmax(0, 7fr)",
+          },
+        },
+        ".layout-full-bleed": {
+          width: "100vw",
+          marginLeft: "calc(50% - 50vw)",
+          marginRight: "calc(50% - 50vw)",
+        },
         "main.MuiBox-root": {
           backgroundColor: neutralPalette[900],
         },
@@ -378,21 +507,27 @@ const DarkTheme = createTheme({
     },
     MuiTypography: {
       defaultProps: {
-        variant: "body2",
+        variant: "body1",
+      },
+    },
+    MuiContainer: {
+      defaultProps: {
+        maxWidth: "xl",
+      },
+      styleOverrides: {
+        root: {
+          paddingLeft: "clamp(16px, 3vw, 32px)",
+          paddingRight: "clamp(16px, 3vw, 32px)",
+        },
       },
     },
     MuiTableCell: {
       styleOverrides: {
-        ...tableCellAlignmentStyles,
-      },
-    },
-    MuiTableRow: {
-      styleOverrides: {
-        ...tableRowAlignmentStyles,
-      },
-    },
-    MuiIconButton: {
-      styleOverrides: {
+        head: {
+          ...quicksandTitleStyles,
+          letterSpacing: 0.2,
+          borderBottom: `1px solid ${neutralPalette[700]}`,
+        },
         root: {
           ...iconButtonTooltipStyles,
           '&[aria-label]:not([aria-label=""])::after': {
