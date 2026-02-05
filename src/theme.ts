@@ -1,5 +1,94 @@
 import { createTheme, responsiveFontSizes } from "@mui/material/styles";
-import gray from "@mui/material/colors/grey";
+
+const neutralPalette = {
+  50: "#F4F5F5",
+  100: "#EEEAEC",
+  200: "#D0D0D0",
+  300: "#C9CECF",
+  400: "#B8BFC1",
+  500: "#929C9F",
+  600: "#7E8A8D",
+  700: "#58636E",
+  800: "#36383D",
+  900: "#121414",
+};
+
+const primaryPalette = {
+  50: "#E6F0F5",
+  100: "#BFD4E8",
+  200: "#99C4D8",
+  300: "#73ADCE",
+  400: "#4097C1",
+  500: "#268084",
+  600: "#00699A",
+  700: "#004369",
+  800: "#003652",
+  900: "#002A3C",
+};
+
+const secondaryPalette = {
+  50: "#F2F8FF",
+  100: "#E0F6FE",
+  200: "#C8EFF0",
+  300: "#9DE5FD",
+  400: "#8ED8F8",
+  500: "#3EC7F5",
+  600: "#1AB3E6",
+  700: "#0A93C4",
+  800: "#056A8F",
+  900: "#03435B",
+};
+
+const successPalette = {
+  50: "#E6F4EF",
+  100: "#C1E6D8",
+  200: "#9AD7C0",
+  300: "#B1C784",
+  400: "#4CAF50",
+  500: "#10B981",
+  600: "#0A7D5A",
+  700: "#047857",
+  800: "#065F46",
+  900: "#064E3B",
+};
+
+const warningPalette = {
+  50: "#FFF8E1",
+  100: "#FFECE3",
+  200: "#FEDE8A",
+  300: "#FFD54F",
+  400: "#FFCA28",
+  500: "#F59E08",
+  600: "#F57C00",
+  700: "#EF6C00",
+  800: "#E65100",
+  900: "#BF360C",
+};
+
+const errorPalette = {
+  50: "#FCE4EC",
+  100: "#F8BBD0",
+  200: "#F48FB1",
+  300: "#F06292",
+  400: "#EC407A",
+  500: "#D81B60",
+  600: "#C21858",
+  700: "#AD1457",
+  800: "#880E4F",
+  900: "#560027",
+};
+
+const shadesPalette = {
+  0: "#FAFAFA",
+  100: "#000000",
+};
+
+const primaryButtonPalette = {
+  default: "#1E88E5",
+  hover: "#1565C0",
+  active: "#0D47A1",
+  disabled: "#BBDEFB",
+};
 
 const titleFontFamily = "\"Quicksand\", sans-serif";
 const bodyFontFamily = "\"Open Sans\", \"Helvetica\", \"Arial\", sans-serif";
@@ -77,6 +166,45 @@ const tableRowAlignmentStyles = {
 const LightTheme = createTheme({
   palette: {
     mode: "light",
+    primary: {
+      light: primaryPalette[300],
+      main: primaryPalette[600],
+      dark: primaryPalette[800],
+      contrastText: shadesPalette[0],
+    },
+    secondary: {
+      light: secondaryPalette[300],
+      main: secondaryPalette[600],
+      dark: secondaryPalette[800],
+      contrastText: shadesPalette[100],
+    },
+    success: {
+      light: successPalette[300],
+      main: successPalette[500],
+      dark: successPalette[700],
+      contrastText: shadesPalette[0],
+    },
+    warning: {
+      light: warningPalette[300],
+      main: warningPalette[500],
+      dark: warningPalette[700],
+      contrastText: shadesPalette[100],
+    },
+    error: {
+      light: errorPalette[300],
+      main: errorPalette[500],
+      dark: errorPalette[700],
+      contrastText: shadesPalette[0],
+    },
+    background: {
+      default: shadesPalette[0],
+      paper: neutralPalette[50],
+    },
+    text: {
+      primary: neutralPalette[900],
+      secondary: neutralPalette[700],
+    },
+    divider: neutralPalette[200],
   },
   typography: {
     fontFamily: bodyFontFamily,
@@ -100,10 +228,10 @@ const LightTheme = createTheme({
     MuiCssBaseline: {
       styleOverrides: {
         "main.MuiBox-root": {
-          backgroundColor: gray[100],
+          backgroundColor: shadesPalette[0],
         },
         body: {
-          backgroundColor: gray[100],
+          backgroundColor: shadesPalette[0],
         },
       },
     },
@@ -135,12 +263,69 @@ const LightTheme = createTheme({
         },
       },
     },
+    MuiButton: {
+      styleOverrides: {
+        containedPrimary: {
+          backgroundColor: primaryButtonPalette.default,
+          color: shadesPalette[0],
+          '&:hover': {
+            backgroundColor: primaryButtonPalette.hover,
+          },
+          '&:active': {
+            backgroundColor: primaryButtonPalette.active,
+          },
+          '&.Mui-disabled': {
+            backgroundColor: primaryButtonPalette.disabled,
+            color: neutralPalette[500],
+          },
+        },
+      },
+    },
   },
 });
 
 const DarkTheme = createTheme({
   palette: {
     mode: "dark",
+    primary: {
+      light: primaryPalette[300],
+      main: primaryPalette[400],
+      dark: primaryPalette[700],
+      contrastText: shadesPalette[0],
+    },
+    secondary: {
+      light: secondaryPalette[300],
+      main: secondaryPalette[500],
+      dark: secondaryPalette[700],
+      contrastText: shadesPalette[100],
+    },
+    success: {
+      light: successPalette[300],
+      main: successPalette[500],
+      dark: successPalette[700],
+      contrastText: shadesPalette[0],
+    },
+    warning: {
+      light: warningPalette[300],
+      main: warningPalette[500],
+      dark: warningPalette[700],
+      contrastText: shadesPalette[100],
+    },
+    error: {
+      light: errorPalette[300],
+      main: errorPalette[500],
+      dark: errorPalette[700],
+      contrastText: shadesPalette[0],
+    },
+    background: {
+      default: neutralPalette[900],
+      paper: neutralPalette[800],
+    },
+    text: {
+      primary: neutralPalette[50],
+      secondary: neutralPalette[400],
+    },
+    divider: neutralPalette[700],
   },
   typography: {
     fontFamily: bodyFontFamily,
@@ -164,10 +349,10 @@ const DarkTheme = createTheme({
     MuiCssBaseline: {
       styleOverrides: {
         "main.MuiBox-root": {
-          backgroundColor: "#121212",
+          backgroundColor: neutralPalette[900],
         },
         body: {
-          backgroundColor: "#121212",
+          backgroundColor: neutralPalette[900],
         },
       },
     },
@@ -195,6 +380,24 @@ const DarkTheme = createTheme({
             color: "#121212",
             backgroundColor: "rgba(255, 255, 255, 0.92)",
             boxShadow: "0 2px 6px rgba(0, 0, 0, 0.35)",
+          },
+        },
+      },
+    },
+    MuiButton: {
+      styleOverrides: {
+        containedPrimary: {
+          backgroundColor: primaryButtonPalette.default,
+          color: shadesPalette[0],
+          '&:hover': {
+            backgroundColor: primaryButtonPalette.hover,
+          },
+          '&:active': {
+            backgroundColor: primaryButtonPalette.active,
+          },
+          '&.Mui-disabled': {
+            backgroundColor: primaryButtonPalette.disabled,
+            color: neutralPalette[600],
           },
         },
       },
