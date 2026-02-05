@@ -143,6 +143,20 @@ const darkSurfaces = {
   subtle: "0 2px 14px rgba(2, 6, 23, 0.4)",
 };
 
+const sharedButtonSizing = {
+  borderRadius: 8,
+  textTransform: "none" as const,
+  fontWeight: 600,
+  letterSpacing: 0.1,
+  minHeight: 44,
+  padding: "12px 24px",
+};
+
+const sharedInputSizing = {
+  borderRadius: 10,
+  minHeight: 52,
+};
+
 const LightTheme = createTheme({
   breakpoints: {
     values: {
@@ -239,14 +253,13 @@ const LightTheme = createTheme({
     MuiCard: {
       styleOverrides: {
         root: {
-          borderRadius: 18,
+          borderRadius: 12,
           boxShadow: lightSurfaces.elevated,
-          border: `1px solid ${alpha(neutralPalette[300], 0.5)}`,
           backgroundImage: "none",
           transition: "transform 180ms ease, box-shadow 180ms ease",
           "&:hover": {
             transform: "translateY(-2px)",
-            boxShadow: "0 14px 32px rgba(15, 23, 42, 0.12)",
+            boxShadow: "0 12px 28px rgba(15, 23, 42, 0.13)",
           },
         },
       },
@@ -254,17 +267,36 @@ const LightTheme = createTheme({
     MuiButton: {
       styleOverrides: {
         root: {
-          borderRadius: 10,
-          textTransform: "none",
-          fontWeight: 600,
-          letterSpacing: 0.1,
-          paddingInline: 16,
-          minHeight: 38,
+          ...sharedButtonSizing,
         },
         contained: {
-          boxShadow: lightSurfaces.subtle,
+          boxShadow: "0 2px 10px rgba(15, 23, 42, 0.12)",
           "&:hover": {
-            boxShadow: lightSurfaces.elevated,
+            boxShadow: "0 6px 16px rgba(15, 23, 42, 0.16)",
+          },
+          "&:active": {
+            boxShadow: "0 2px 8px rgba(15, 23, 42, 0.1)",
+          },
+        },
+        outlined: {
+          borderWidth: 1,
+          borderColor: alpha(primaryPalette[600], 0.45),
+          backgroundColor: "transparent",
+          "&:hover": {
+            borderColor: primaryPalette[600],
+            backgroundColor: alpha(primaryPalette[100], 0.25),
+          },
+          "&:active": {
+            backgroundColor: alpha(primaryPalette[100], 0.4),
+          },
+        },
+        text: {
+          color: primaryPalette[700],
+          "&:hover": {
+            backgroundColor: alpha(primaryPalette[100], 0.28),
+          },
+          "&:active": {
+            backgroundColor: alpha(primaryPalette[100], 0.38),
           },
         },
       },
@@ -272,7 +304,7 @@ const LightTheme = createTheme({
     MuiOutlinedInput: {
       styleOverrides: {
         root: {
-          borderRadius: 10,
+          ...sharedInputSizing,
           backgroundColor: alpha(shadesPalette[0], 0.8),
           "& .MuiOutlinedInput-notchedOutline": {
             borderColor: alpha(neutralPalette[400], 0.6),
@@ -280,6 +312,43 @@ const LightTheme = createTheme({
           "&:hover .MuiOutlinedInput-notchedOutline": {
             borderColor: neutralPalette[500],
           },
+          "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+            borderColor: primaryPalette[600],
+            borderWidth: 2,
+          },
+          "& .MuiOutlinedInput-input": {
+            paddingTop: 14,
+            paddingBottom: 14,
+          },
+        },
+      },
+    },
+    MuiInputLabel: {
+      styleOverrides: {
+        root: {
+          position: "static",
+          transform: "none",
+          marginBottom: 8,
+          fontWeight: 600,
+          color: neutralPalette[700],
+          "&.Mui-focused": {
+            color: primaryPalette[700],
+          },
+        },
+      },
+    },
+    MuiFormControl: {
+      styleOverrides: {
+        root: {
+          rowGap: 8,
+        },
+      },
+    },
+    MuiFormHelperText: {
+      styleOverrides: {
+        root: {
+          marginLeft: 0,
+          marginTop: 2,
         },
       },
     },
@@ -293,6 +362,65 @@ const LightTheme = createTheme({
           boxShadow: lightSurfaces.subtle,
           borderBottom: `1px solid ${alpha(neutralPalette[300], 0.6)}`,
           backgroundImage: "none",
+        },
+      },
+    },
+    MuiToolbar: {
+      styleOverrides: {
+        regular: {
+          minHeight: 72,
+          "@media (min-width:600px)": {
+            minHeight: 72,
+          },
+        },
+      },
+    },
+    MuiTabs: {
+      styleOverrides: {
+        indicator: {
+          height: 3,
+          borderRadius: 999,
+        },
+      },
+    },
+    MuiTab: {
+      styleOverrides: {
+        root: {
+          minHeight: 46,
+          textTransform: "none",
+          color: neutralPalette[700],
+          "&.Mui-selected": {
+            color: primaryPalette[700],
+            fontWeight: 700,
+          },
+        },
+      },
+    },
+    MuiListItemButton: {
+      styleOverrides: {
+        root: {
+          borderRadius: 8,
+          "&.Mui-selected": {
+            backgroundColor: alpha(primaryPalette[100], 0.45),
+            color: primaryPalette[800],
+          },
+        },
+      },
+    },
+    MuiMenu: {
+      styleOverrides: {
+        paper: {
+          borderRadius: 10,
+          boxShadow: lightSurfaces.elevated,
+          border: `1px solid ${alpha(neutralPalette[300], 0.55)}`,
+          transition: "opacity 140ms ease, transform 140ms ease",
+        },
+      },
+    },
+    MuiDrawer: {
+      styleOverrides: {
+        paper: {
+          borderRight: `1px solid ${alpha(neutralPalette[300], 0.5)}`,
         },
       },
     },
@@ -473,14 +601,13 @@ const DarkTheme = createTheme({
     MuiCard: {
       styleOverrides: {
         root: {
-          borderRadius: 18,
+          borderRadius: 12,
           boxShadow: darkSurfaces.elevated,
-          border: `1px solid ${alpha(neutralPalette[700], 0.65)}`,
           backgroundImage: "none",
           transition: "transform 180ms ease, box-shadow 180ms ease",
           "&:hover": {
             transform: "translateY(-2px)",
-            boxShadow: "0 16px 34px rgba(2, 6, 23, 0.6)",
+            boxShadow: "0 14px 30px rgba(2, 6, 23, 0.64)",
           },
         },
       },
@@ -488,17 +615,35 @@ const DarkTheme = createTheme({
     MuiButton: {
       styleOverrides: {
         root: {
-          borderRadius: 10,
-          textTransform: "none",
-          fontWeight: 600,
-          letterSpacing: 0.1,
-          paddingInline: 16,
-          minHeight: 38,
+          ...sharedButtonSizing,
         },
         contained: {
-          boxShadow: darkSurfaces.subtle,
+          boxShadow: "0 2px 10px rgba(2, 6, 23, 0.42)",
           "&:hover": {
-            boxShadow: darkSurfaces.elevated,
+            boxShadow: "0 6px 18px rgba(2, 6, 23, 0.5)",
+          },
+          "&:active": {
+            boxShadow: "0 2px 8px rgba(2, 6, 23, 0.32)",
+          },
+        },
+        outlined: {
+          borderWidth: 1,
+          borderColor: alpha(primaryPalette[300], 0.52),
+          "&:hover": {
+            borderColor: primaryPalette[300],
+            backgroundColor: alpha(primaryPalette[900], 0.32),
+          },
+          "&:active": {
+            backgroundColor: alpha(primaryPalette[900], 0.45),
+          },
+        },
+        text: {
+          color: primaryPalette[300],
+          "&:hover": {
+            backgroundColor: alpha(primaryPalette[900], 0.28),
+          },
+          "&:active": {
+            backgroundColor: alpha(primaryPalette[900], 0.38),
           },
         },
       },
@@ -506,7 +651,7 @@ const DarkTheme = createTheme({
     MuiOutlinedInput: {
       styleOverrides: {
         root: {
-          borderRadius: 10,
+          ...sharedInputSizing,
           backgroundColor: alpha(neutralPalette[800], 0.92),
           "& .MuiOutlinedInput-notchedOutline": {
             borderColor: alpha(neutralPalette[600], 0.85),
@@ -514,6 +659,43 @@ const DarkTheme = createTheme({
           "&:hover .MuiOutlinedInput-notchedOutline": {
             borderColor: neutralPalette[500],
           },
+          "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+            borderColor: primaryPalette[300],
+            borderWidth: 2,
+          },
+          "& .MuiOutlinedInput-input": {
+            paddingTop: 14,
+            paddingBottom: 14,
+          },
+        },
+      },
+    },
+    MuiInputLabel: {
+      styleOverrides: {
+        root: {
+          position: "static",
+          transform: "none",
+          marginBottom: 8,
+          fontWeight: 600,
+          color: neutralPalette[300],
+          "&.Mui-focused": {
+            color: primaryPalette[300],
+          },
+        },
+      },
+    },
+    MuiFormControl: {
+      styleOverrides: {
+        root: {
+          rowGap: 8,
+        },
+      },
+    },
+    MuiFormHelperText: {
+      styleOverrides: {
+        root: {
+          marginLeft: 0,
+          marginTop: 2,
         },
       },
     },
@@ -527,6 +709,65 @@ const DarkTheme = createTheme({
           boxShadow: darkSurfaces.subtle,
           borderBottom: `1px solid ${alpha(neutralPalette[700], 0.7)}`,
           backgroundImage: "none",
+        },
+      },
+    },
+    MuiToolbar: {
+      styleOverrides: {
+        regular: {
+          minHeight: 72,
+          "@media (min-width:600px)": {
+            minHeight: 72,
+          },
+        },
+      },
+    },
+    MuiTabs: {
+      styleOverrides: {
+        indicator: {
+          height: 3,
+          borderRadius: 999,
+        },
+      },
+    },
+    MuiTab: {
+      styleOverrides: {
+        root: {
+          minHeight: 46,
+          textTransform: "none",
+          color: neutralPalette[400],
+          "&.Mui-selected": {
+            color: primaryPalette[200],
+            fontWeight: 700,
+          },
+        },
+      },
+    },
+    MuiListItemButton: {
+      styleOverrides: {
+        root: {
+          borderRadius: 8,
+          "&.Mui-selected": {
+            backgroundColor: alpha(primaryPalette[800], 0.5),
+            color: primaryPalette[100],
+          },
+        },
+      },
+    },
+    MuiMenu: {
+      styleOverrides: {
+        paper: {
+          borderRadius: 10,
+          boxShadow: darkSurfaces.elevated,
+          border: `1px solid ${alpha(neutralPalette[700], 0.75)}`,
+          transition: "opacity 140ms ease, transform 140ms ease",
+        },
+      },
+    },
+    MuiDrawer: {
+      styleOverrides: {
+        paper: {
+          borderRight: `1px solid ${alpha(neutralPalette[700], 0.7)}`,
         },
       },
     },
