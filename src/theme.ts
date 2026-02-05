@@ -104,14 +104,29 @@ const scale = (step: number) =>
   `${Number((baseFontSize * Math.pow(typeScaleRatio, step)).toFixed(3))}px`;
 
 const headerTypography = {
-  h1: { ...quicksandTitleStyles, fontWeight: 300 },
-  h2: { ...quicksandTitleStyles, fontWeight: 300 },
-  h3: { ...quicksandTitleStyles, fontWeight: 400 },
-  h4: { ...quicksandTitleStyles, fontWeight: 400 },
-  h5: { ...quicksandTitleStyles, fontWeight: 500 },
-  h6: { ...quicksandTitleStyles, fontWeight: 600 },
+  h1: { ...quicksandTitleStyles, fontWeight: 300, fontSize: scale(3), lineHeight: 1.15 },
+  h2: { ...quicksandTitleStyles, fontWeight: 300, fontSize: scale(2), lineHeight: 1.2 },
+  h3: { ...quicksandTitleStyles, fontWeight: 400, fontSize: scale(1), lineHeight: 1.25 },
+  h4: { ...quicksandTitleStyles, fontWeight: 400, fontSize: scale(0), lineHeight: 1.3 },
+  h5: { ...quicksandTitleStyles, fontWeight: 500, fontSize: scale(-1), lineHeight: 1.4 },
+  h6: { ...quicksandTitleStyles, fontWeight: 600, fontSize: scale(-2), lineHeight: 1.4 },
   subtitle1: { ...quicksandTitleStyles, fontWeight: 500 },
   subtitle2: { ...quicksandTitleStyles, fontWeight: 600 },
+};
+
+const bodyTypography = {
+  body1: {
+    fontSize: scale(-2),
+    lineHeight: 1.6,
+  },
+  body2: {
+    fontSize: scale(-3),
+    lineHeight: 1.55,
+  },
+  caption: {
+    fontSize: scale(-4),
+    lineHeight: 1.45,
+  },
 };
 
 const enterpriseShape = {
@@ -129,6 +144,15 @@ const darkSurfaces = {
 };
 
 const LightTheme = createTheme({
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 600,
+      md: 900,
+      lg: 1200,
+      xl: 1440,
+    },
+  },
   shape: enterpriseShape,
   palette: {
     mode: "light",
@@ -219,6 +243,11 @@ const LightTheme = createTheme({
           boxShadow: lightSurfaces.elevated,
           border: `1px solid ${alpha(neutralPalette[300], 0.5)}`,
           backgroundImage: "none",
+          transition: "transform 180ms ease, box-shadow 180ms ease",
+          "&:hover": {
+            transform: "translateY(-2px)",
+            boxShadow: "0 14px 32px rgba(15, 23, 42, 0.12)",
+          },
         },
       },
     },
@@ -255,6 +284,9 @@ const LightTheme = createTheme({
       },
     },
     MuiAppBar: {
+      defaultProps: {
+        position: "sticky",
+      },
       styleOverrides: {
         root: {
           backdropFilter: "saturate(180%) blur(10px)",
@@ -276,6 +308,35 @@ const LightTheme = createTheme({
     MuiCssBaseline: {
       styleOverrides: {
         ...quicksandFontImport,
+        ".layout-grid-12": {
+          display: "grid",
+          gridTemplateColumns: "repeat(12, minmax(0, 1fr))",
+          gap: "clamp(12px, 2vw, 24px)",
+        },
+        ".layout-responsive-columns": {
+          display: "grid",
+          gridTemplateColumns: "1fr",
+          gap: "clamp(12px, 2vw, 24px)",
+          "@media (min-width:900px)": {
+            gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
+          },
+          "@media (min-width:1200px)": {
+            gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
+          },
+        },
+        ".layout-asymmetric": {
+          display: "grid",
+          gridTemplateColumns: "1fr",
+          gap: "clamp(16px, 2.5vw, 32px)",
+          "@media (min-width:1200px)": {
+            gridTemplateColumns: "minmax(0, 5fr) minmax(0, 7fr)",
+          },
+        },
+        ".layout-full-bleed": {
+          width: "100vw",
+          marginLeft: "calc(50% - 50vw)",
+          marginRight: "calc(50% - 50vw)",
+        },
         "main.MuiBox-root": {
           backgroundColor: shadesPalette[0],
         },
@@ -287,6 +348,17 @@ const LightTheme = createTheme({
     MuiTypography: {
       defaultProps: {
         variant: "body1",
+      },
+    },
+    MuiContainer: {
+      defaultProps: {
+        maxWidth: "xl",
+      },
+      styleOverrides: {
+        root: {
+          paddingLeft: "clamp(16px, 3vw, 32px)",
+          paddingRight: "clamp(16px, 3vw, 32px)",
+        },
       },
     },
     MuiTableCell: {
@@ -306,6 +378,15 @@ const LightTheme = createTheme({
 });
 
 const DarkTheme = createTheme({
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 600,
+      md: 900,
+      lg: 1200,
+      xl: 1440,
+    },
+  },
   shape: enterpriseShape,
   palette: {
     mode: "dark",
@@ -396,6 +477,11 @@ const DarkTheme = createTheme({
           boxShadow: darkSurfaces.elevated,
           border: `1px solid ${alpha(neutralPalette[700], 0.65)}`,
           backgroundImage: "none",
+          transition: "transform 180ms ease, box-shadow 180ms ease",
+          "&:hover": {
+            transform: "translateY(-2px)",
+            boxShadow: "0 16px 34px rgba(2, 6, 23, 0.6)",
+          },
         },
       },
     },
@@ -432,6 +518,9 @@ const DarkTheme = createTheme({
       },
     },
     MuiAppBar: {
+      defaultProps: {
+        position: "sticky",
+      },
       styleOverrides: {
         root: {
           backdropFilter: "saturate(180%) blur(12px)",
@@ -453,6 +542,35 @@ const DarkTheme = createTheme({
     MuiCssBaseline: {
       styleOverrides: {
         ...quicksandFontImport,
+        ".layout-grid-12": {
+          display: "grid",
+          gridTemplateColumns: "repeat(12, minmax(0, 1fr))",
+          gap: "clamp(12px, 2vw, 24px)",
+        },
+        ".layout-responsive-columns": {
+          display: "grid",
+          gridTemplateColumns: "1fr",
+          gap: "clamp(12px, 2vw, 24px)",
+          "@media (min-width:900px)": {
+            gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
+          },
+          "@media (min-width:1200px)": {
+            gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
+          },
+        },
+        ".layout-asymmetric": {
+          display: "grid",
+          gridTemplateColumns: "1fr",
+          gap: "clamp(16px, 2.5vw, 32px)",
+          "@media (min-width:1200px)": {
+            gridTemplateColumns: "minmax(0, 5fr) minmax(0, 7fr)",
+          },
+        },
+        ".layout-full-bleed": {
+          width: "100vw",
+          marginLeft: "calc(50% - 50vw)",
+          marginRight: "calc(50% - 50vw)",
+        },
         "main.MuiBox-root": {
           backgroundColor: neutralPalette[900],
         },
@@ -464,6 +582,17 @@ const DarkTheme = createTheme({
     MuiTypography: {
       defaultProps: {
         variant: "body1",
+      },
+    },
+    MuiContainer: {
+      defaultProps: {
+        maxWidth: "xl",
+      },
+      styleOverrides: {
+        root: {
+          paddingLeft: "clamp(16px, 3vw, 32px)",
+          paddingRight: "clamp(16px, 3vw, 32px)",
+        },
       },
     },
     MuiTableCell: {
