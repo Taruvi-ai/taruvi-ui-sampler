@@ -1,8 +1,26 @@
 import { createTheme, responsiveFontSizes } from "@mui/material/styles";
 import gray from "@mui/material/colors/grey";
 
-const titleFontFamily = "\"Quicksand\", \"Open Sans\", \"Helvetica\", \"Arial\", sans-serif";
+const titleFontFamily = "\"Quicksand\", sans-serif";
 const bodyFontFamily = "\"Open Sans\", \"Helvetica\", \"Arial\", sans-serif";
+
+const quicksandTitleStyles = {
+  fontFamily: titleFontFamily,
+  fontOpticalSizing: "auto",
+  fontWeight: 700,
+  fontStyle: "normal",
+};
+
+const headerTypography = {
+  h1: { ...quicksandTitleStyles },
+  h2: { ...quicksandTitleStyles },
+  h3: { ...quicksandTitleStyles },
+  h4: { ...quicksandTitleStyles },
+  h5: { ...quicksandTitleStyles },
+  h6: { ...quicksandTitleStyles },
+  subtitle1: { ...quicksandTitleStyles },
+  subtitle2: { ...quicksandTitleStyles },
+};
 
 const LightTheme = createTheme({
   palette: {
@@ -10,14 +28,7 @@ const LightTheme = createTheme({
   },
   typography: {
     fontFamily: bodyFontFamily,
-    h1: { fontFamily: titleFontFamily },
-    h2: { fontFamily: titleFontFamily },
-    h3: { fontFamily: titleFontFamily },
-    h4: { fontFamily: titleFontFamily },
-    h5: { fontFamily: titleFontFamily },
-    h6: { fontFamily: titleFontFamily },
-    subtitle1: { fontFamily: titleFontFamily },
-    subtitle2: { fontFamily: titleFontFamily },
+    ...headerTypography,
   },
   components: {
     MuiChip: {
@@ -47,6 +58,13 @@ const LightTheme = createTheme({
     MuiTypography: {
       defaultProps: {
         variant: "body2",
+      },
+    },
+    MuiTableCell: {
+      styleOverrides: {
+        head: {
+          ...quicksandTitleStyles,
+        },
       },
     },
   },
@@ -58,14 +76,7 @@ const DarkTheme = createTheme({
   },
   typography: {
     fontFamily: bodyFontFamily,
-    h1: { fontFamily: titleFontFamily },
-    h2: { fontFamily: titleFontFamily },
-    h3: { fontFamily: titleFontFamily },
-    h4: { fontFamily: titleFontFamily },
-    h5: { fontFamily: titleFontFamily },
-    h6: { fontFamily: titleFontFamily },
-    subtitle1: { fontFamily: titleFontFamily },
-    subtitle2: { fontFamily: titleFontFamily },
+    ...headerTypography,
   },
   components: {
     MuiChip: {
@@ -95,6 +106,13 @@ const DarkTheme = createTheme({
     MuiTypography: {
       defaultProps: {
         variant: "body2",
+      },
+    },
+    MuiTableCell: {
+      styleOverrides: {
+        head: {
+          ...quicksandTitleStyles,
+        },
       },
     },
   },
