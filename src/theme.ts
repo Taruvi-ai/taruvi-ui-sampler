@@ -49,6 +49,31 @@ const iconButtonTooltipStyles = {
   },
 };
 
+const tableCellAlignmentStyles = {
+  root: {
+    verticalAlign: "middle",
+    paddingTop: 14,
+    paddingBottom: 14,
+    lineHeight: 1.5,
+  },
+  head: {
+    ...quicksandTitleStyles,
+    whiteSpace: "nowrap",
+    letterSpacing: "0.02em",
+  },
+  body: {
+    whiteSpace: "nowrap",
+  },
+};
+
+const tableRowAlignmentStyles = {
+  root: {
+    '& > .MuiTableCell-root': {
+      borderBottomColor: "rgba(128, 128, 128, 0.22)",
+    },
+  },
+};
+
 const LightTheme = createTheme({
   palette: {
     mode: "light",
@@ -89,9 +114,12 @@ const LightTheme = createTheme({
     },
     MuiTableCell: {
       styleOverrides: {
-        head: {
-          ...quicksandTitleStyles,
-        },
+        ...tableCellAlignmentStyles,
+      },
+    },
+    MuiTableRow: {
+      styleOverrides: {
+        ...tableRowAlignmentStyles,
       },
     },
     MuiIconButton: {
@@ -150,9 +178,12 @@ const DarkTheme = createTheme({
     },
     MuiTableCell: {
       styleOverrides: {
-        head: {
-          ...quicksandTitleStyles,
-        },
+        ...tableCellAlignmentStyles,
+      },
+    },
+    MuiTableRow: {
+      styleOverrides: {
+        ...tableRowAlignmentStyles,
       },
     },
     MuiIconButton: {
