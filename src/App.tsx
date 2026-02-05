@@ -38,7 +38,7 @@ import { ColorModeContextProvider } from "./contexts";
 import { Header, Title } from "./components";
 import { useAutoLoginForDemo } from "./hooks";
 
-const API_URL = "https://api.finefoods.refine.dev";
+const API_URL = "/api";
 
 const App: React.FC = () => {
   // This hook is used to automatically login the user.
