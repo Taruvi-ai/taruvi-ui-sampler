@@ -104,7 +104,7 @@ const quicksandFontImport = {
   "@import": "url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap')",
 };
 
-const baseFontSize = 16;
+const baseFontSize = 18;
 const typeScaleRatio = 1.25;
 
 const scale = (step: number) =>
@@ -114,24 +114,24 @@ const headerTypography = {
   h1: { ...quicksandTitleStyles, fontWeight: 300, fontSize: scale(3), lineHeight: 1.15 },
   h2: { ...quicksandTitleStyles, fontWeight: 300, fontSize: scale(2), lineHeight: 1.2 },
   h3: { ...quicksandTitleStyles, fontWeight: 400, fontSize: scale(1), lineHeight: 1.25 },
-  h4: { ...quicksandTitleStyles, fontWeight: 400, fontSize: scale(0), lineHeight: 1.3 },
-  h5: { ...quicksandTitleStyles, fontWeight: 500, fontSize: scale(-1), lineHeight: 1.4 },
-  h6: { ...quicksandTitleStyles, fontWeight: 600, fontSize: scale(-2), lineHeight: 1.4 },
-  subtitle1: { ...quicksandTitleStyles, fontWeight: 500 },
-  subtitle2: { ...quicksandTitleStyles, fontWeight: 600 },
+  h4: { ...quicksandTitleStyles, fontWeight: 500, fontSize: scale(0), lineHeight: 1.3 },
+  h5: { ...quicksandTitleStyles, fontWeight: 500, fontSize: "16px", lineHeight: 1.35 },
+  h6: { ...quicksandTitleStyles, fontWeight: 600, fontSize: "14px", lineHeight: 1.4 },
+  subtitle1: { ...quicksandTitleStyles, fontWeight: 500, fontSize: "16px", lineHeight: 1.4 },
+  subtitle2: { ...quicksandTitleStyles, fontWeight: 600, fontSize: "14px", lineHeight: 1.4 },
 };
 
 const bodyTypography = {
   body1: {
-    fontSize: scale(-2),
+    fontSize: `${baseFontSize}px`,
     lineHeight: 1.6,
   },
   body2: {
-    fontSize: scale(-3),
-    lineHeight: 1.55,
+    fontSize: scale(-1),
+    lineHeight: 1.6,
   },
   caption: {
-    fontSize: scale(-4),
+    fontSize: scale(-2),
     lineHeight: 1.45,
   },
 };
@@ -226,7 +226,7 @@ const LightTheme = createTheme({
     fontWeightLight: 300,
     fontWeightRegular: 500,
     fontWeightMedium: 600,
-    fontWeightBold: 700,
+    fontWeightBold: 600,
     body1: {
       fontWeight: 500,
     },
@@ -421,7 +421,7 @@ const DarkTheme = createTheme({
     fontWeightLight: 300,
     fontWeightRegular: 500,
     fontWeightMedium: 600,
-    fontWeightBold: 700,
+    fontWeightBold: 600,
     body1: {
       fontWeight: 500,
     },
