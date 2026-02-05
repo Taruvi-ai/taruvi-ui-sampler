@@ -1,5 +1,4 @@
 import { createTheme, responsiveFontSizes } from "@mui/material/styles";
-import gray from "@mui/material/colors/grey";
 
 const titleFontFamily = "\"Quicksand\", sans-serif";
 const bodyFontFamily = "\"Open Sans\", \"Helvetica\", \"Arial\", sans-serif";
@@ -29,6 +28,45 @@ const headerTypography = {
 const LightTheme = createTheme({
   palette: {
     mode: "light",
+    primary: {
+      light: primaryPalette[300],
+      main: primaryPalette[600],
+      dark: primaryPalette[800],
+      contrastText: shadesPalette[0],
+    },
+    secondary: {
+      light: secondaryPalette[300],
+      main: secondaryPalette[600],
+      dark: secondaryPalette[800],
+      contrastText: shadesPalette[100],
+    },
+    success: {
+      light: successPalette[300],
+      main: successPalette[500],
+      dark: successPalette[700],
+      contrastText: shadesPalette[0],
+    },
+    warning: {
+      light: warningPalette[300],
+      main: warningPalette[500],
+      dark: warningPalette[700],
+      contrastText: shadesPalette[100],
+    },
+    error: {
+      light: errorPalette[300],
+      main: errorPalette[500],
+      dark: errorPalette[700],
+      contrastText: shadesPalette[0],
+    },
+    background: {
+      default: shadesPalette[0],
+      paper: neutralPalette[50],
+    },
+    text: {
+      primary: neutralPalette[900],
+      secondary: neutralPalette[700],
+    },
+    divider: neutralPalette[200],
   },
   typography: {
     fontFamily: bodyFontFamily,
@@ -53,10 +91,10 @@ const LightTheme = createTheme({
       styleOverrides: {
         ...quicksandFontImport,
         "main.MuiBox-root": {
-          backgroundColor: gray[100],
+          backgroundColor: shadesPalette[0],
         },
         body: {
-          backgroundColor: gray[100],
+          backgroundColor: shadesPalette[0],
         },
       },
     },
@@ -78,6 +116,45 @@ const LightTheme = createTheme({
 const DarkTheme = createTheme({
   palette: {
     mode: "dark",
+    primary: {
+      light: primaryPalette[300],
+      main: primaryPalette[400],
+      dark: primaryPalette[700],
+      contrastText: shadesPalette[0],
+    },
+    secondary: {
+      light: secondaryPalette[300],
+      main: secondaryPalette[500],
+      dark: secondaryPalette[700],
+      contrastText: shadesPalette[100],
+    },
+    success: {
+      light: successPalette[300],
+      main: successPalette[500],
+      dark: successPalette[700],
+      contrastText: shadesPalette[0],
+    },
+    warning: {
+      light: warningPalette[300],
+      main: warningPalette[500],
+      dark: warningPalette[700],
+      contrastText: shadesPalette[100],
+    },
+    error: {
+      light: errorPalette[300],
+      main: errorPalette[500],
+      dark: errorPalette[700],
+      contrastText: shadesPalette[0],
+    },
+    background: {
+      default: neutralPalette[900],
+      paper: neutralPalette[800],
+    },
+    text: {
+      primary: neutralPalette[50],
+      secondary: neutralPalette[400],
+    },
+    divider: neutralPalette[700],
   },
   typography: {
     fontFamily: bodyFontFamily,
@@ -102,10 +179,10 @@ const DarkTheme = createTheme({
       styleOverrides: {
         ...quicksandFontImport,
         "main.MuiBox-root": {
-          backgroundColor: "#121212",
+          backgroundColor: neutralPalette[900],
         },
         body: {
-          backgroundColor: "#121212",
+          backgroundColor: neutralPalette[900],
         },
       },
     },
