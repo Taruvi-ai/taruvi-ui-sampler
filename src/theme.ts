@@ -1,4 +1,4 @@
-import { createTheme, responsiveFontSizes } from "@mui/material/styles";
+import { alpha, createTheme, responsiveFontSizes } from "@mui/material/styles";
 
 const neutralPalette = {
   50: "#F4F5F5",
@@ -166,8 +166,6 @@ const hexToRgba = (hex: string, opacity: number) => {
   return `rgba(${red}, ${green}, ${blue}, ${opacity})`;
 };
 
-const alpha = (hex: string, opacity: number) => hexToRgba(hex, opacity);
-
 const primaryButtonOverrides = {
   containedPrimary: {
     backgroundColor: primaryButtonPalette.default,
@@ -287,7 +285,7 @@ const LightTheme = createTheme({
       styleOverrides: {
         root: {
           borderRadius: 14,
-          border: `1px solid ${alpha(neutralPalette[300], 0.55)}`,
+          border: `1px solid ${hexToRgba(neutralPalette[300], 0.55)}`,
           boxShadow: lightSurfaces.subtle,
           backgroundImage: "none",
         },
@@ -482,7 +480,7 @@ const DarkTheme = createTheme({
       styleOverrides: {
         root: {
           borderRadius: 14,
-          border: `1px solid ${alpha(neutralPalette[700], 0.7)}`,
+          border: `1px solid ${hexToRgba(neutralPalette[700], 0.7)}`,
           boxShadow: darkSurfaces.subtle,
           backgroundImage: "none",
         },
