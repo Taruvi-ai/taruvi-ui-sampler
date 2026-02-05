@@ -1,4 +1,4 @@
-import { createTheme, responsiveFontSizes } from "@mui/material/styles";
+import { alpha, createTheme, responsiveFontSizes } from "@mui/material/styles";
 
 const titleFontFamily = "\"Quicksand\", sans-serif";
 const bodyFontFamily = "\"Open Sans\", \"Helvetica\", \"Arial\", sans-serif";
@@ -25,7 +25,22 @@ const headerTypography = {
   subtitle2: { ...quicksandTitleStyles },
 };
 
+const enterpriseShape = {
+  borderRadius: 14,
+};
+
+const lightSurfaces = {
+  elevated: "0 8px 24px rgba(15, 23, 42, 0.08)",
+  subtle: "0 2px 12px rgba(15, 23, 42, 0.06)",
+};
+
+const darkSurfaces = {
+  elevated: "0 10px 26px rgba(2, 6, 23, 0.45)",
+  subtle: "0 2px 14px rgba(2, 6, 23, 0.4)",
+};
+
 const LightTheme = createTheme({
+  shape: enterpriseShape,
   palette: {
     mode: "light",
     primary: {
@@ -73,17 +88,85 @@ const LightTheme = createTheme({
     ...headerTypography,
   },
   components: {
+    MuiPaper: {
+      styleOverrides: {
+        root: {
+          borderRadius: 14,
+          border: `1px solid ${alpha(neutralPalette[300], 0.55)}`,
+          boxShadow: lightSurfaces.subtle,
+          backgroundImage: "none",
+        },
+      },
+    },
     MuiChip: {
       styleOverrides: {
         labelSmall: {
           lineHeight: "18px",
+        },
+        root: {
+          borderRadius: 999,
+          fontWeight: 600,
         },
       },
     },
     MuiCard: {
       styleOverrides: {
         root: {
-          borderRadius: 16,
+          borderRadius: 18,
+          boxShadow: lightSurfaces.elevated,
+          border: `1px solid ${alpha(neutralPalette[300], 0.5)}`,
+          backgroundImage: "none",
+        },
+      },
+    },
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          borderRadius: 10,
+          textTransform: "none",
+          fontWeight: 700,
+          letterSpacing: 0.1,
+          paddingInline: 16,
+          minHeight: 38,
+        },
+        contained: {
+          boxShadow: lightSurfaces.subtle,
+          "&:hover": {
+            boxShadow: lightSurfaces.elevated,
+          },
+        },
+      },
+    },
+    MuiOutlinedInput: {
+      styleOverrides: {
+        root: {
+          borderRadius: 10,
+          backgroundColor: alpha(shadesPalette[0], 0.8),
+          "& .MuiOutlinedInput-notchedOutline": {
+            borderColor: alpha(neutralPalette[400], 0.6),
+          },
+          "&:hover .MuiOutlinedInput-notchedOutline": {
+            borderColor: neutralPalette[500],
+          },
+        },
+      },
+    },
+    MuiAppBar: {
+      styleOverrides: {
+        root: {
+          backdropFilter: "saturate(180%) blur(10px)",
+          boxShadow: lightSurfaces.subtle,
+          borderBottom: `1px solid ${alpha(neutralPalette[300], 0.6)}`,
+          backgroundImage: "none",
+        },
+      },
+    },
+    MuiTableContainer: {
+      styleOverrides: {
+        root: {
+          borderRadius: 14,
+          border: `1px solid ${alpha(neutralPalette[300], 0.55)}`,
+          boxShadow: lightSurfaces.subtle,
         },
       },
     },
@@ -107,6 +190,12 @@ const LightTheme = createTheme({
       styleOverrides: {
         head: {
           ...quicksandTitleStyles,
+          letterSpacing: 0.2,
+          borderBottom: `1px solid ${neutralPalette[300]}`,
+        },
+        root: {
+          paddingTop: 14,
+          paddingBottom: 14,
         },
       },
     },
@@ -114,6 +203,7 @@ const LightTheme = createTheme({
 });
 
 const DarkTheme = createTheme({
+  shape: enterpriseShape,
   palette: {
     mode: "dark",
     primary: {
@@ -161,17 +251,85 @@ const DarkTheme = createTheme({
     ...headerTypography,
   },
   components: {
+    MuiPaper: {
+      styleOverrides: {
+        root: {
+          borderRadius: 14,
+          border: `1px solid ${alpha(neutralPalette[700], 0.7)}`,
+          boxShadow: darkSurfaces.subtle,
+          backgroundImage: "none",
+        },
+      },
+    },
     MuiChip: {
       styleOverrides: {
         labelSmall: {
           lineHeight: "18px",
+        },
+        root: {
+          borderRadius: 999,
+          fontWeight: 600,
         },
       },
     },
     MuiCard: {
       styleOverrides: {
         root: {
-          borderRadius: 16,
+          borderRadius: 18,
+          boxShadow: darkSurfaces.elevated,
+          border: `1px solid ${alpha(neutralPalette[700], 0.65)}`,
+          backgroundImage: "none",
+        },
+      },
+    },
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          borderRadius: 10,
+          textTransform: "none",
+          fontWeight: 700,
+          letterSpacing: 0.1,
+          paddingInline: 16,
+          minHeight: 38,
+        },
+        contained: {
+          boxShadow: darkSurfaces.subtle,
+          "&:hover": {
+            boxShadow: darkSurfaces.elevated,
+          },
+        },
+      },
+    },
+    MuiOutlinedInput: {
+      styleOverrides: {
+        root: {
+          borderRadius: 10,
+          backgroundColor: alpha(neutralPalette[800], 0.92),
+          "& .MuiOutlinedInput-notchedOutline": {
+            borderColor: alpha(neutralPalette[600], 0.85),
+          },
+          "&:hover .MuiOutlinedInput-notchedOutline": {
+            borderColor: neutralPalette[500],
+          },
+        },
+      },
+    },
+    MuiAppBar: {
+      styleOverrides: {
+        root: {
+          backdropFilter: "saturate(180%) blur(12px)",
+          boxShadow: darkSurfaces.subtle,
+          borderBottom: `1px solid ${alpha(neutralPalette[700], 0.7)}`,
+          backgroundImage: "none",
+        },
+      },
+    },
+    MuiTableContainer: {
+      styleOverrides: {
+        root: {
+          borderRadius: 14,
+          border: `1px solid ${alpha(neutralPalette[700], 0.75)}`,
+          boxShadow: darkSurfaces.subtle,
         },
       },
     },
@@ -195,6 +353,12 @@ const DarkTheme = createTheme({
       styleOverrides: {
         head: {
           ...quicksandTitleStyles,
+          letterSpacing: 0.2,
+          borderBottom: `1px solid ${neutralPalette[700]}`,
+        },
+        root: {
+          paddingTop: 14,
+          paddingBottom: 14,
         },
       },
     },
