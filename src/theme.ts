@@ -1,4 +1,4 @@
-import { alpha, createTheme, responsiveFontSizes } from "@mui/material/styles";
+import { createTheme, responsiveFontSizes } from "@mui/material/styles";
 
 const neutralPalette = {
   50: "#F4F5F5",

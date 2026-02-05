@@ -7,7 +7,8 @@
     "build": "refine build",
     "dev": "refine dev",
     "refine": "refine",
-    "start": "refine start"
+    "start": "refine start",
+    "postbuild": "node -e \"const fs=require('fs');fs.rmSync('dist/_redirects',{force:true});console.log('Removed dist/_redirects if present');\""
   },
   "browserslist": {
     "production": [
