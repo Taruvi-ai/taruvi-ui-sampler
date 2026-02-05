@@ -137,17 +137,17 @@ const bodyTypography = {
 };
 
 const enterpriseShape = {
-  borderRadius: 14,
+  borderRadius: 12,
 };
 
 const lightSurfaces = {
-  elevated: "0 8px 24px rgba(15, 23, 42, 0.08)",
-  subtle: "0 2px 12px rgba(15, 23, 42, 0.06)",
+  elevated: "0 10px 24px rgba(15, 23, 42, 0.12), 0 4px 10px rgba(15, 23, 42, 0.08)",
+  subtle: "0 1px 3px rgba(15, 23, 42, 0.12), 0 1px 2px rgba(15, 23, 42, 0.2)",
 };
 
 const darkSurfaces = {
-  elevated: "0 10px 26px rgba(2, 6, 23, 0.45)",
-  subtle: "0 2px 14px rgba(2, 6, 23, 0.4)",
+  elevated: "0 10px 24px rgba(2, 6, 23, 0.5), 0 4px 10px rgba(2, 6, 23, 0.4)",
+  subtle: "0 1px 3px rgba(2, 6, 23, 0.45), 0 1px 2px rgba(2, 6, 23, 0.55)",
 };
 
 const hexToRgba = (hex: string, opacity: number) => {
@@ -284,8 +284,8 @@ const LightTheme = createTheme({
     MuiPaper: {
       styleOverrides: {
         root: {
-          borderRadius: 14,
-          border: `1px solid ${hexToRgba(neutralPalette[300], 0.55)}`,
+          borderRadius: 12,
+          border: `1px solid ${hexToRgba(neutralPalette[200], 0.7)}`,
           boxShadow: lightSurfaces.subtle,
           backgroundImage: "none",
         },
@@ -305,8 +305,23 @@ const LightTheme = createTheme({
     MuiCard: {
       styleOverrides: {
         root: {
-          borderRadius: 16,
-          borderColor: neutralPalette[200],
+          borderRadius: 20,
+          border: `1px solid ${hexToRgba(neutralPalette[200], 0.8)}`,
+          boxShadow: lightSurfaces.elevated,
+        },
+      },
+    },
+    MuiAvatar: {
+      styleOverrides: {
+        root: {
+          borderRadius: "50%",
+        },
+      },
+    },
+    MuiSvgIcon: {
+      styleOverrides: {
+        root: {
+          strokeWidth: 1.8,
         },
       },
     },
@@ -388,6 +403,43 @@ const LightTheme = createTheme({
     MuiButton: {
       styleOverrides: {
         ...primaryButtonOverrides,
+        root: {
+          borderRadius: 999,
+          boxShadow: "none",
+        },
+        contained: {
+          boxShadow: lightSurfaces.subtle,
+          '&:hover': {
+            boxShadow: lightSurfaces.elevated,
+          },
+          '&:active': {
+            boxShadow: lightSurfaces.subtle,
+          },
+        },
+        startIcon: {
+          marginRight: "8px",
+        },
+        endIcon: {
+          marginLeft: "8px",
+        },
+      },
+    },
+    MuiOutlinedInput: {
+      styleOverrides: {
+        root: {
+          borderRadius: 12,
+          backgroundColor: hexToRgba(neutralPalette[100], 0.7),
+          boxShadow: lightSurfaces.subtle,
+          '& .MuiOutlinedInput-notchedOutline': {
+            borderColor: "transparent",
+          },
+          '&:hover .MuiOutlinedInput-notchedOutline': {
+            borderColor: "transparent",
+          },
+          '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+            borderColor: hexToRgba(primaryPalette[500], 0.4),
+          },
+        },
       },
     },
     MuiLink: {
@@ -479,8 +531,8 @@ const DarkTheme = createTheme({
     MuiPaper: {
       styleOverrides: {
         root: {
-          borderRadius: 14,
-          border: `1px solid ${hexToRgba(neutralPalette[700], 0.7)}`,
+          borderRadius: 12,
+          border: `1px solid ${hexToRgba(neutralPalette[700], 0.55)}`,
           boxShadow: darkSurfaces.subtle,
           backgroundImage: "none",
         },
@@ -500,8 +552,23 @@ const DarkTheme = createTheme({
     MuiCard: {
       styleOverrides: {
         root: {
-          borderRadius: 16,
-          borderColor: neutralPalette[700],
+          borderRadius: 20,
+          border: `1px solid ${hexToRgba(neutralPalette[700], 0.7)}`,
+          boxShadow: darkSurfaces.elevated,
+        },
+      },
+    },
+    MuiAvatar: {
+      styleOverrides: {
+        root: {
+          borderRadius: "50%",
+        },
+      },
+    },
+    MuiSvgIcon: {
+      styleOverrides: {
+        root: {
+          strokeWidth: 1.8,
         },
       },
     },
@@ -583,6 +650,43 @@ const DarkTheme = createTheme({
     MuiButton: {
       styleOverrides: {
         ...primaryButtonOverrides,
+        root: {
+          borderRadius: 999,
+          boxShadow: "none",
+        },
+        contained: {
+          boxShadow: darkSurfaces.subtle,
+          '&:hover': {
+            boxShadow: darkSurfaces.elevated,
+          },
+          '&:active': {
+            boxShadow: darkSurfaces.subtle,
+          },
+        },
+        startIcon: {
+          marginRight: "8px",
+        },
+        endIcon: {
+          marginLeft: "8px",
+        },
+      },
+    },
+    MuiOutlinedInput: {
+      styleOverrides: {
+        root: {
+          borderRadius: 12,
+          backgroundColor: hexToRgba(neutralPalette[800], 0.72),
+          boxShadow: darkSurfaces.subtle,
+          '& .MuiOutlinedInput-notchedOutline': {
+            borderColor: "transparent",
+          },
+          '&:hover .MuiOutlinedInput-notchedOutline': {
+            borderColor: "transparent",
+          },
+          '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+            borderColor: hexToRgba(secondaryPalette[400], 0.55),
+          },
+        },
       },
     },
     MuiLink: {
