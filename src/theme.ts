@@ -96,7 +96,7 @@ const bodyFontFamily = "\"Open Sans\", \"Helvetica\", \"Arial\", sans-serif";
 const quicksandTitleStyles = {
   fontFamily: titleFontFamily,
   fontOpticalSizing: "auto",
-  fontWeight: 600,
+  fontWeight: 700,
   fontStyle: "normal",
 };
 
@@ -111,14 +111,14 @@ const scale = (step: number) =>
   `${Number((baseFontSize * Math.pow(typeScaleRatio, step)).toFixed(3))}px`;
 
 const headerTypography = {
-  h1: { ...quicksandTitleStyles, fontWeight: 300, fontSize: scale(3), lineHeight: 1.15 },
-  h2: { ...quicksandTitleStyles, fontWeight: 300, fontSize: scale(2), lineHeight: 1.2 },
-  h3: { ...quicksandTitleStyles, fontWeight: 400, fontSize: scale(1), lineHeight: 1.25 },
-  h4: { ...quicksandTitleStyles, fontWeight: 500, fontSize: scale(0), lineHeight: 1.3 },
-  h5: { ...quicksandTitleStyles, fontWeight: 500, fontSize: "16px", lineHeight: 1.35 },
-  h6: { ...quicksandTitleStyles, fontWeight: 600, fontSize: "14px", lineHeight: 1.4 },
-  subtitle1: { ...quicksandTitleStyles, fontWeight: 500, fontSize: "16px", lineHeight: 1.4 },
-  subtitle2: { ...quicksandTitleStyles, fontWeight: 600, fontSize: "14px", lineHeight: 1.4 },
+  h1: { ...quicksandTitleStyles, fontWeight: 700, fontSize: scale(3), lineHeight: 1.15 },
+  h2: { ...quicksandTitleStyles, fontWeight: 700, fontSize: scale(2), lineHeight: 1.2 },
+  h3: { ...quicksandTitleStyles, fontWeight: 700, fontSize: scale(1), lineHeight: 1.25 },
+  h4: { ...quicksandTitleStyles, fontWeight: 700, fontSize: scale(0), lineHeight: 1.3 },
+  h5: { ...quicksandTitleStyles, fontWeight: 700, fontSize: "16px", lineHeight: 1.35 },
+  h6: { ...quicksandTitleStyles, fontWeight: 700, fontSize: "14px", lineHeight: 1.4 },
+  subtitle1: { ...quicksandTitleStyles, fontWeight: 700, fontSize: "16px", lineHeight: 1.4 },
+  subtitle2: { ...quicksandTitleStyles, fontWeight: 700, fontSize: "14px", lineHeight: 1.4 },
 };
 
 const bodyTypography = {
