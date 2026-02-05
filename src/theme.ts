@@ -452,6 +452,22 @@ const LightTheme = createTheme({
         },
       },
     },
+    MuiAlert: {
+      styleOverrides: {
+        root: {
+          borderRadius: 12,
+        },
+        standardError: {
+          border: `1px solid ${hexToRgba(errorPalette[400], 0.35)}`,
+          borderLeft: `4px solid ${errorPalette[500]}`,
+          backgroundColor: hexToRgba(errorPalette[50], 0.8),
+          color: neutralPalette[900],
+          '& .MuiAlert-icon': {
+            color: errorPalette[600],
+          },
+        },
+      },
+    },
   },
 });
 
@@ -695,6 +711,22 @@ const DarkTheme = createTheme({
           color: secondaryPalette[400],
           '&:hover': {
             color: secondaryPalette[300],
+          },
+        },
+      },
+    },
+    MuiAlert: {
+      styleOverrides: {
+        root: {
+          borderRadius: 12,
+        },
+        standardError: {
+          border: `1px solid ${hexToRgba(errorPalette[500], 0.48)}`,
+          borderLeft: `4px solid ${errorPalette[300]}`,
+          backgroundColor: hexToRgba(errorPalette[900], 0.34),
+          color: neutralPalette[50],
+          '& .MuiAlert-icon': {
+            color: errorPalette[300],
           },
         },
       },
