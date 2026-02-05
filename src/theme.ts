@@ -97,15 +97,92 @@ const quicksandFontImport = {
   "@import": "url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap')",
 };
 
+const baseFontSize = 16;
+const typeScaleRatio = 1.25;
+
+const scale = (step: number) =>
+  `${Number((baseFontSize * Math.pow(typeScaleRatio, step)).toFixed(3))}px`;
+
 const headerTypography = {
-  h1: { ...quicksandTitleStyles },
-  h2: { ...quicksandTitleStyles },
-  h3: { ...quicksandTitleStyles },
-  h4: { ...quicksandTitleStyles },
-  h5: { ...quicksandTitleStyles },
-  h6: { ...quicksandTitleStyles },
-  subtitle1: { ...quicksandTitleStyles },
-  subtitle2: { ...quicksandTitleStyles },
+  h1: {
+    ...quicksandTitleStyles,
+    fontSize: scale(5),
+    lineHeight: 1.2,
+    letterSpacing: "-0.02em",
+  },
+  h2: {
+    ...quicksandTitleStyles,
+    fontSize: scale(4),
+    lineHeight: 1.25,
+    letterSpacing: "-0.015em",
+  },
+  h3: {
+    ...quicksandTitleStyles,
+    fontSize: scale(3),
+    lineHeight: 1.3,
+    letterSpacing: "-0.01em",
+  },
+  h4: {
+    ...quicksandTitleStyles,
+    fontSize: scale(2),
+    lineHeight: 1.35,
+  },
+  h5: {
+    ...quicksandTitleStyles,
+    fontSize: scale(1),
+    lineHeight: 1.4,
+  },
+  h6: {
+    ...quicksandTitleStyles,
+    fontSize: scale(0),
+    lineHeight: 1.45,
+  },
+  subtitle1: {
+    ...quicksandTitleStyles,
+    fontSize: scale(0),
+    lineHeight: 1.5,
+    fontWeight: 600,
+  },
+  subtitle2: {
+    ...quicksandTitleStyles,
+    fontSize: scale(-1),
+    lineHeight: 1.5,
+    fontWeight: 600,
+  },
+};
+
+const bodyTypography = {
+  body1: {
+    fontFamily: bodyFontFamily,
+    fontSize: scale(0),
+    lineHeight: 1.6,
+    letterSpacing: "0.01em",
+  },
+  body2: {
+    fontFamily: bodyFontFamily,
+    fontSize: scale(-1),
+    lineHeight: 1.6,
+    letterSpacing: "0.01em",
+  },
+  button: {
+    fontFamily: bodyFontFamily,
+    fontSize: scale(-1),
+    lineHeight: 1.5,
+    fontWeight: 700,
+  },
+  caption: {
+    fontFamily: bodyFontFamily,
+    fontSize: scale(-2),
+    lineHeight: 1.5,
+  },
+  overline: {
+    fontFamily: bodyFontFamily,
+    fontSize: scale(-2),
+    lineHeight: 1.5,
+    fontWeight: 600,
+    letterSpacing: "0.08em",
+    textTransform: "uppercase" as const,
+  },
 };
 
 const enterpriseShape = {
@@ -169,6 +246,7 @@ const LightTheme = createTheme({
   typography: {
     fontFamily: bodyFontFamily,
     ...headerTypography,
+    ...bodyTypography,
   },
   components: {
     MuiPaper: {
@@ -266,7 +344,7 @@ const LightTheme = createTheme({
     },
     MuiTypography: {
       defaultProps: {
-        variant: "body2",
+        variant: "body1",
       },
     },
     MuiTableCell: {
@@ -332,6 +410,7 @@ const DarkTheme = createTheme({
   typography: {
     fontFamily: bodyFontFamily,
     ...headerTypography,
+    ...bodyTypography,
   },
   components: {
     MuiPaper: {
@@ -429,7 +508,7 @@ const DarkTheme = createTheme({
     },
     MuiTypography: {
       defaultProps: {
-        variant: "body2",
+        variant: "body1",
       },
     },
     MuiTableCell: {
