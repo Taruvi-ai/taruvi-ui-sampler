@@ -150,6 +150,22 @@ const darkSurfaces = {
   subtle: "0 2px 14px rgba(2, 6, 23, 0.4)",
 };
 
+const hexToRgba = (hex: string, opacity: number) => {
+  const sanitizedHex = hex.replace("#", "");
+  const normalizedHex = sanitizedHex.length === 3
+    ? sanitizedHex
+        .split("")
+        .map((character) => `${character}${character}`)
+        .join("")
+    : sanitizedHex;
+
+  const red = Number.parseInt(normalizedHex.slice(0, 2), 16);
+  const green = Number.parseInt(normalizedHex.slice(2, 4), 16);
+  const blue = Number.parseInt(normalizedHex.slice(4, 6), 16);
+
+  return `rgba(${red}, ${green}, ${blue}, ${opacity})`;
+};
+
 const primaryButtonOverrides = {
   containedPrimary: {
     backgroundColor: primaryButtonPalette.default,
@@ -166,6 +182,31 @@ const primaryButtonOverrides = {
     },
   },
 };
+
+const iconButtonTooltipStyles = {
+  position: "relative",
+  '&[aria-label]:not([aria-label=""])::after': {
+    content: "attr(aria-label)",
+    position: "absolute",
+    left: "50%",
+    bottom: "calc(100% + 8px)",
+    transform: "translate(-50%, 4px)",
+    opacity: 0,
+    pointerEvents: "none",
+    transition: "opacity 0.15s ease, transform 0.15s ease",
+    whiteSpace: "nowrap",
+    borderRadius: 8,
+    padding: "4px 8px",
+    zIndex: 1,
+    fontSize: "0.75rem",
+    lineHeight: 1.3,
+    fontWeight: 500,
+  },
+  '&[aria-label]:not([aria-label=""]):hover::after, &[aria-label]:not([aria-label=""]):focus-visible::after': {
+    opacity: 1,
+    transform: "translate(-50%, 0)",
+  },
+} as const;
 
 const LightTheme = createTheme({
   breakpoints: {
@@ -244,7 +285,7 @@ const LightTheme = createTheme({
       styleOverrides: {
         root: {
           borderRadius: 14,
-          border: `1px solid ${alpha(neutralPalette[300], 0.55)}`,
+          border: `1px solid ${hexToRgba(neutralPalette[300], 0.55)}`,
           boxShadow: lightSurfaces.subtle,
           backgroundImage: "none",
         },
@@ -439,7 +480,7 @@ const DarkTheme = createTheme({
       styleOverrides: {
         root: {
           borderRadius: 14,
-          border: `1px solid ${alpha(neutralPalette[700], 0.7)}`,
+          border: `1px solid ${hexToRgba(neutralPalette[700], 0.7)}`,
           boxShadow: darkSurfaces.subtle,
           backgroundImage: "none",
         },
