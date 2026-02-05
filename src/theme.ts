@@ -1,4 +1,4 @@
-import { createTheme, responsiveFontSizes } from "@mui/material/styles";
+import { alpha, createTheme, responsiveFontSizes } from "@mui/material/styles";
 
 const neutralPalette = {
   50: "#F4F5F5",
@@ -166,6 +166,31 @@ const primaryButtonOverrides = {
     },
   },
 };
+
+const iconButtonTooltipStyles = {
+  position: "relative",
+  '&[aria-label]:not([aria-label=""])::after': {
+    content: "attr(aria-label)",
+    position: "absolute",
+    left: "50%",
+    bottom: "calc(100% + 8px)",
+    transform: "translate(-50%, 4px)",
+    opacity: 0,
+    pointerEvents: "none",
+    transition: "opacity 0.15s ease, transform 0.15s ease",
+    whiteSpace: "nowrap",
+    borderRadius: 8,
+    padding: "4px 8px",
+    zIndex: 1,
+    fontSize: "0.75rem",
+    lineHeight: 1.3,
+    fontWeight: 500,
+  },
+  '&[aria-label]:not([aria-label=""]):hover::after, &[aria-label]:not([aria-label=""]):focus-visible::after': {
+    opacity: 1,
+    transform: "translate(-50%, 0)",
+  },
+} as const;
 
 const LightTheme = createTheme({
   breakpoints: {
