@@ -89,23 +89,23 @@ const bodyFontFamily = "\"Open Sans\", \"Helvetica\", \"Arial\", sans-serif";
 const quicksandTitleStyles = {
   fontFamily: titleFontFamily,
   fontOpticalSizing: "auto",
-  fontWeight: 700,
+  fontWeight: 600,
   fontStyle: "normal",
 };
 
 const quicksandFontImport = {
-  "@import": "url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap')",
+  "@import": "url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap')",
 };
 
 const headerTypography = {
-  h1: { ...quicksandTitleStyles },
-  h2: { ...quicksandTitleStyles },
-  h3: { ...quicksandTitleStyles },
-  h4: { ...quicksandTitleStyles },
-  h5: { ...quicksandTitleStyles },
-  h6: { ...quicksandTitleStyles },
-  subtitle1: { ...quicksandTitleStyles },
-  subtitle2: { ...quicksandTitleStyles },
+  h1: { ...quicksandTitleStyles, fontWeight: 300 },
+  h2: { ...quicksandTitleStyles, fontWeight: 300 },
+  h3: { ...quicksandTitleStyles, fontWeight: 400 },
+  h4: { ...quicksandTitleStyles, fontWeight: 400 },
+  h5: { ...quicksandTitleStyles, fontWeight: 500 },
+  h6: { ...quicksandTitleStyles, fontWeight: 600 },
+  subtitle1: { ...quicksandTitleStyles, fontWeight: 500 },
+  subtitle2: { ...quicksandTitleStyles, fontWeight: 600 },
 };
 
 const enterpriseShape = {
@@ -168,6 +168,19 @@ const LightTheme = createTheme({
   },
   typography: {
     fontFamily: bodyFontFamily,
+    fontWeightLight: 300,
+    fontWeightRegular: 500,
+    fontWeightMedium: 600,
+    fontWeightBold: 700,
+    body1: {
+      fontWeight: 500,
+    },
+    body2: {
+      fontWeight: 500,
+    },
+    button: {
+      fontWeight: 600,
+    },
     ...headerTypography,
   },
   components: {
@@ -207,7 +220,7 @@ const LightTheme = createTheme({
         root: {
           borderRadius: 10,
           textTransform: "none",
-          fontWeight: 700,
+          fontWeight: 600,
           letterSpacing: 0.1,
           paddingInline: 16,
           minHeight: 38,
@@ -331,6 +344,19 @@ const DarkTheme = createTheme({
   },
   typography: {
     fontFamily: bodyFontFamily,
+    fontWeightLight: 300,
+    fontWeightRegular: 500,
+    fontWeightMedium: 600,
+    fontWeightBold: 700,
+    body1: {
+      fontWeight: 500,
+    },
+    body2: {
+      fontWeight: 500,
+    },
+    button: {
+      fontWeight: 600,
+    },
     ...headerTypography,
   },
   components: {
@@ -370,7 +396,7 @@ const DarkTheme = createTheme({
         root: {
           borderRadius: 10,
           textTransform: "none",
-          fontWeight: 700,
+          fontWeight: 600,
           letterSpacing: 0.1,
           paddingInline: 16,
           minHeight: 38,
