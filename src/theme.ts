@@ -220,6 +220,8 @@ const LightTheme = createTheme({
   },
   shape: enterpriseShape,
   palette: {
+    contrastThreshold: 3.2,
+    tonalOffset: 0.18,
     mode: "light",
     primary: {
       light: primaryPalette[300],
@@ -483,6 +485,8 @@ const DarkTheme = createTheme({
   },
   shape: enterpriseShape,
   palette: {
+    contrastThreshold: 3.2,
+    tonalOffset: 0.18,
     mode: "dark",
     primary: {
       light: primaryPalette[300],
