@@ -1,64 +1,64 @@
 import { createTheme, responsiveFontSizes } from "@mui/material/styles";
 
 const neutralPalette = {
-  50: "#F4F5F5",
-  100: "#E9EBEC",
-  200: "#D0D0D0",
-  300: "#C9CECF",
-  400: "#B8BFC1",
-  500: "#92D69F",
-  600: "#7E8A8D",
-  700: "#5B6365",
-  800: "#363B3D",
-  900: "#121414",
+  50: "#F5F5F5",
+  100: "#EEEEEE",
+  200: "#E0E0E0",
+  300: "#D5D5D5",
+  400: "#BDBDBD",
+  500: "#9E9E9E",
+  600: "#757575",
+  700: "#616161",
+  800: "#424242",
+  900: "#212121",
 };
 
 const primaryPalette = {
-  50: "#E6F0F5",
-  100: "#BFDAE8",
-  200: "#99C4DB",
-  300: "#73ADCE",
-  400: "#4D97C1",
-  500: "#268DB4",
-  600: "#00699A",
-  700: "#004369",
-  800: "#003652",
-  900: "#002A3C",
+  50: "#E6EFF2",
+  100: "#C0D4DC",
+  200: "#9AB8C6",
+  300: "#749CAF",
+  400: "#4D8099",
+  500: "#2B5F6F",
+  600: "#255160",
+  700: "#1F4350",
+  800: "#183640",
+  900: "#122830",
 };
 
 const secondaryPalette = {
-  50: "#F2FBFF",
-  100: "#E0F6FE",
-  200: "#C8EFF0",
-  300: "#9DE5FD",
-  400: "#8ED8F8",
-  500: "#3EC7F5",
-  600: "#1AB3E6",
-  700: "#0A93C4",
-  800: "#056A8F",
-  900: "#03435B",
+  50: "#E3F2FD",
+  100: "#BBDEFB",
+  200: "#90CAF9",
+  300: "#64B5F6",
+  400: "#42A5F5",
+  500: "#2196F3",
+  600: "#1E88E5",
+  700: "#1976D2",
+  800: "#1565C0",
+  900: "#0D47A1",
 };
 
 const successPalette = {
-  50: "#E6F4EF",
-  100: "#C1E6D8",
-  200: "#9AD7C0",
-  300: "#B1C784",
-  400: "#4CAF50",
-  500: "#10B981",
-  600: "#0A7D5A",
-  700: "#047857",
-  800: "#065F46",
-  900: "#064E3B",
+  50: "#E8F5E9",
+  100: "#C8E6C9",
+  200: "#A5D6A7",
+  300: "#81C784",
+  400: "#66BB6A",
+  500: "#4CAF50",
+  600: "#43A047",
+  700: "#388E3C",
+  800: "#2E7D32",
+  900: "#1B5E20",
 };
 
 const warningPalette = {
-  50: "#FFF8E1",
-  100: "#FFECE3",
-  200: "#FDE68A",
-  300: "#FFD54F",
-  400: "#FFCA28",
-  500: "#F59E0B",
+  50: "#FFF3E0",
+  100: "#FFE0B2",
+  200: "#FFCC80",
+  300: "#FFB74D",
+  400: "#FFA726",
+  500: "#FB8C00",
   600: "#F57C00",
   700: "#EF6C00",
   800: "#E65100",
@@ -71,7 +71,7 @@ const errorPalette = {
   200: "#F48FB1",
   300: "#F06292",
   400: "#EC407A",
-  500: "#D81B60",
+  500: "#E91E63",
   600: "#C2185B",
   700: "#AD1457",
   800: "#880E4F",
@@ -84,8 +84,8 @@ const shadesPalette = {
 };
 
 const primaryButtonPalette = {
-  default: "#1E88E5",
-  hover: "#1565C0",
+  default: "#2196F3",
+  hover: "#1976D2",
   active: "#0D47A1",
   disabled: "#BBDEFB",
 };
@@ -101,20 +101,14 @@ const quicksandTitleStyles = {
 };
 
 const quicksandFontImport = {
-  "@import": "url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap')",
+  "@import": "url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Open+Sans:wght@400;500;600;700&display=swap')",
 };
 
-const baseFontSize = 18;
-const typeScaleRatio = 1.25;
-
-const scale = (step: number) =>
-  `${Number((baseFontSize * Math.pow(typeScaleRatio, step)).toFixed(3))}px`;
-
 const headerTypography = {
-  h1: { ...quicksandTitleStyles, fontWeight: 700, fontSize: scale(3), lineHeight: 1.15 },
-  h2: { ...quicksandTitleStyles, fontWeight: 700, fontSize: scale(2), lineHeight: 1.2 },
-  h3: { ...quicksandTitleStyles, fontWeight: 700, fontSize: scale(1), lineHeight: 1.25 },
-  h4: { ...quicksandTitleStyles, fontWeight: 700, fontSize: scale(0), lineHeight: 1.3 },
+  h1: { ...quicksandTitleStyles, fontWeight: 700, fontSize: "24px", lineHeight: 1.2 },
+  h2: { ...quicksandTitleStyles, fontWeight: 600, fontSize: "18px", lineHeight: 1.2 },
+  h3: { ...quicksandTitleStyles, fontWeight: 600, fontSize: "16px", lineHeight: 1.2 },
+  h4: { ...quicksandTitleStyles, fontWeight: 600, fontSize: "16px", lineHeight: 1.2 },
   h5: { ...quicksandTitleStyles, fontWeight: 700, fontSize: "16px", lineHeight: 1.35 },
   h6: { ...quicksandTitleStyles, fontWeight: 700, fontSize: "14px", lineHeight: 1.4 },
   subtitle1: { ...quicksandTitleStyles, fontWeight: 700, fontSize: "16px", lineHeight: 1.4 },
@@ -124,30 +118,30 @@ const headerTypography = {
 const bodyTypography = {
   body1: {
     fontSize: "14px",
-    lineHeight: 1.6,
+    lineHeight: 1.5,
   },
   body2: {
-    fontSize: scale(-1),
-    lineHeight: 1.6,
+    fontSize: "14px",
+    lineHeight: 1.5,
   },
   caption: {
-    fontSize: scale(-2),
-    lineHeight: 1.45,
+    fontSize: "12px",
+    lineHeight: 1.5,
   },
 };
 
 const enterpriseShape = {
-  borderRadius: 12,
+  borderRadius: 8,
 };
 
 const lightSurfaces = {
-  elevated: "0 10px 24px rgba(15, 23, 42, 0.12), 0 4px 10px rgba(15, 23, 42, 0.08)",
-  subtle: "0 1px 3px rgba(15, 23, 42, 0.12), 0 1px 2px rgba(15, 23, 42, 0.2)",
+  elevated: "0 2px 4px rgba(0,0,0,0.1)",
+  subtle: "0 1px 3px rgba(0,0,0,0.12)",
 };
 
 const darkSurfaces = {
-  elevated: "0 10px 24px rgba(2, 6, 23, 0.5), 0 4px 10px rgba(2, 6, 23, 0.4)",
-  subtle: "0 1px 3px rgba(2, 6, 23, 0.45), 0 1px 2px rgba(2, 6, 23, 0.55)",
+  elevated: "0 2px 4px rgba(0,0,0,0.4)",
+  subtle: "0 1px 3px rgba(0,0,0,0.3)",
 };
 
 const hexToRgba = (hex: string, opacity: number) => {
@@ -224,9 +218,9 @@ const LightTheme = createTheme({
     tonalOffset: 0.18,
     mode: "light",
     primary: {
-      light: primaryPalette[500],
-      main: primaryPalette[700],
-      dark: primaryPalette[800],
+      light: primaryPalette[400],
+      main: primaryPalette[500],
+      dark: primaryPalette[700],
       contrastText: shadesPalette[0],
     },
     secondary: {
@@ -243,7 +237,7 @@ const LightTheme = createTheme({
     },
     warning: {
       light: warningPalette[300],
-      main: warningPalette[500],
+      main: warningPalette[400],
       dark: warningPalette[700],
       contrastText: shadesPalette[100],
     },
@@ -255,26 +249,26 @@ const LightTheme = createTheme({
     },
     grey: neutralPalette,
     background: {
-      default: shadesPalette[0],
+      default: neutralPalette[50],
       paper: neutralPalette[50],
     },
     text: {
       primary: neutralPalette[900],
-      secondary: neutralPalette[700],
+      secondary: neutralPalette[600],
     },
     divider: neutralPalette[200],
   },
   typography: {
     fontFamily: bodyFontFamily,
     fontWeightLight: 300,
-    fontWeightRegular: 500,
-    fontWeightMedium: 600,
-    fontWeightBold: 600,
+    fontWeightRegular: 400,
+    fontWeightMedium: 500,
+    fontWeightBold: 700,
     body1: {
-      fontWeight: 500,
+      fontWeight: 400,
     },
     body2: {
-      fontWeight: 500,
+      fontWeight: 400,
     },
     button: {
       fontWeight: 600,
@@ -286,10 +280,11 @@ const LightTheme = createTheme({
     MuiPaper: {
       styleOverrides: {
         root: {
-          borderRadius: 12,
-          border: `1px solid ${hexToRgba(neutralPalette[200], 0.7)}`,
-          boxShadow: lightSurfaces.subtle,
+          borderRadius: 0,
+          border: "none",
+          boxShadow: "none",
           backgroundImage: "none",
+          backgroundColor: "transparent",
         },
       },
     },
@@ -297,19 +292,22 @@ const LightTheme = createTheme({
       styleOverrides: {
         labelSmall: {
           lineHeight: "18px",
+          fontSize: "12px",
         },
         root: {
-          borderRadius: 999,
+          borderRadius: 8,
           fontWeight: 600,
+          padding: "4px 12px",
         },
       },
     },
     MuiCard: {
       styleOverrides: {
         root: {
-          borderRadius: 20,
+          borderRadius: 8,
           border: `1px solid ${hexToRgba(neutralPalette[200], 0.8)}`,
           boxShadow: lightSurfaces.elevated,
+          backgroundColor: shadesPalette[0],
         },
       },
     },
@@ -317,6 +315,9 @@ const LightTheme = createTheme({
       styleOverrides: {
         root: {
           borderRadius: "50%",
+          width: "32px",
+          height: "32px",
+          fontSize: "14px",
         },
       },
     },
@@ -324,6 +325,11 @@ const LightTheme = createTheme({
       styleOverrides: {
         root: {
           strokeWidth: 1.8,
+          fontSize: "20px",
+          color: neutralPalette[700],
+          '&:hover': {
+            color: neutralPalette[900],
+          },
         },
       },
     },
@@ -360,10 +366,10 @@ const LightTheme = createTheme({
           marginRight: "calc(50% - 50vw)",
         },
         "main.MuiBox-root": {
-          backgroundColor: shadesPalette[0],
+          backgroundColor: neutralPalette[50],
         },
         body: {
-          backgroundColor: shadesPalette[0],
+          backgroundColor: neutralPalette[50],
           color: neutralPalette[900],
         },
       },
@@ -371,6 +377,14 @@ const LightTheme = createTheme({
     MuiTypography: {
       defaultProps: {
         variant: "body1",
+      },
+    },
+    MuiAppBar: {
+      styleOverrides: {
+        root: {
+          backgroundColor: primaryPalette[500],
+          minHeight: "56px",
+        },
       },
     },
     MuiContainer: {
@@ -384,6 +398,13 @@ const LightTheme = createTheme({
         },
       },
     },
+    MuiTableRow: {
+      styleOverrides: {
+        root: {
+          height: "60px",
+        },
+      },
+    },
     MuiTableCell: {
       styleOverrides: {
         head: {
@@ -393,6 +414,7 @@ const LightTheme = createTheme({
         },
         root: {
           ...iconButtonTooltipStyles,
+          minHeight: "60px",
           '&[aria-label]:not([aria-label=""])::after': {
             ...iconButtonTooltipStyles['&[aria-label]:not([aria-label=""])::after'],
             color: shadesPalette[0],
@@ -406,7 +428,8 @@ const LightTheme = createTheme({
       styleOverrides: {
         ...primaryButtonOverrides,
         root: {
-          borderRadius: 999,
+          borderRadius: 4,
+          padding: "8px 16px",
           boxShadow: "none",
         },
         contained: {
@@ -429,7 +452,7 @@ const LightTheme = createTheme({
     MuiOutlinedInput: {
       styleOverrides: {
         root: {
-          borderRadius: 12,
+          borderRadius: 8,
           backgroundColor: hexToRgba(neutralPalette[100], 0.7),
           boxShadow: lightSurfaces.subtle,
           '& .MuiOutlinedInput-notchedOutline': {
@@ -441,6 +464,14 @@ const LightTheme = createTheme({
           '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
             borderColor: hexToRgba(primaryPalette[500], 0.4),
           },
+        },
+      },
+    },
+    MuiCheckbox: {
+      styleOverrides: {
+        root: {
+          width: "20px",
+          height: "20px",
         },
       },
     },
@@ -457,7 +488,7 @@ const LightTheme = createTheme({
     MuiAlert: {
       styleOverrides: {
         root: {
-          borderRadius: 12,
+          borderRadius: 8,
         },
         standardError: {
           border: `1px solid ${hexToRgba(errorPalette[400], 0.35)}`,
@@ -490,7 +521,7 @@ const DarkTheme = createTheme({
     mode: "dark",
     primary: {
       light: primaryPalette[400],
-      main: primaryPalette[700],
+      main: primaryPalette[500],
       dark: primaryPalette[800],
       contrastText: shadesPalette[0],
     },
@@ -508,7 +539,7 @@ const DarkTheme = createTheme({
     },
     warning: {
       light: warningPalette[300],
-      main: warningPalette[500],
+      main: warningPalette[400],
       dark: warningPalette[700],
       contrastText: shadesPalette[100],
     },
@@ -532,14 +563,14 @@ const DarkTheme = createTheme({
   typography: {
     fontFamily: bodyFontFamily,
     fontWeightLight: 300,
-    fontWeightRegular: 500,
-    fontWeightMedium: 600,
-    fontWeightBold: 600,
+    fontWeightRegular: 400,
+    fontWeightMedium: 500,
+    fontWeightBold: 700,
     body1: {
-      fontWeight: 500,
+      fontWeight: 400,
     },
     body2: {
-      fontWeight: 500,
+      fontWeight: 400,
     },
     button: {
       fontWeight: 600,
@@ -551,10 +582,11 @@ const DarkTheme = createTheme({
     MuiPaper: {
       styleOverrides: {
         root: {
-          borderRadius: 12,
-          border: `1px solid ${hexToRgba(neutralPalette[700], 0.55)}`,
-          boxShadow: darkSurfaces.subtle,
+          borderRadius: 0,
+          border: "none",
+          boxShadow: "none",
           backgroundImage: "none",
+          backgroundColor: "transparent",
         },
       },
     },
@@ -562,17 +594,19 @@ const DarkTheme = createTheme({
       styleOverrides: {
         labelSmall: {
           lineHeight: "18px",
+          fontSize: "12px",
         },
         root: {
-          borderRadius: 999,
+          borderRadius: 20,
           fontWeight: 600,
+          padding: "4px 12px",
         },
       },
     },
     MuiCard: {
       styleOverrides: {
         root: {
-          borderRadius: 20,
+          borderRadius: 8,
           border: `1px solid ${hexToRgba(neutralPalette[700], 0.7)}`,
           boxShadow: darkSurfaces.elevated,
         },
@@ -582,6 +616,9 @@ const DarkTheme = createTheme({
       styleOverrides: {
         root: {
           borderRadius: "50%",
+          width: "32px",
+          height: "32px",
+          fontSize: "14px",
         },
       },
     },
@@ -589,6 +626,11 @@ const DarkTheme = createTheme({
       styleOverrides: {
         root: {
           strokeWidth: 1.8,
+          fontSize: "20px",
+          color: neutralPalette[400],
+          '&:hover': {
+            color: shadesPalette[0],
+          },
         },
       },
     },
@@ -638,6 +680,14 @@ const DarkTheme = createTheme({
         variant: "body1",
       },
     },
+    MuiAppBar: {
+      styleOverrides: {
+        root: {
+          backgroundColor: primaryPalette[500],
+          minHeight: "56px",
+        },
+      },
+    },
     MuiContainer: {
       defaultProps: {
         maxWidth: "xl",
@@ -646,6 +696,13 @@ const DarkTheme = createTheme({
         root: {
           paddingLeft: "clamp(16px, 3vw, 32px)",
           paddingRight: "clamp(16px, 3vw, 32px)",
+        },
+      },
+    },
+    MuiTableRow: {
+      styleOverrides: {
+        root: {
+          height: "60px",
         },
       },
     },
@@ -658,6 +715,7 @@ const DarkTheme = createTheme({
         },
         root: {
           ...iconButtonTooltipStyles,
+          minHeight: "60px",
           '&[aria-label]:not([aria-label=""])::after': {
             ...iconButtonTooltipStyles['&[aria-label]:not([aria-label=""])::after'],
             color: neutralPalette[900],
@@ -671,7 +729,8 @@ const DarkTheme = createTheme({
       styleOverrides: {
         ...primaryButtonOverrides,
         root: {
-          borderRadius: 999,
+          borderRadius: 4,
+          padding: "8px 16px",
           boxShadow: "none",
         },
         contained: {
@@ -694,7 +753,7 @@ const DarkTheme = createTheme({
     MuiOutlinedInput: {
       styleOverrides: {
         root: {
-          borderRadius: 12,
+          borderRadius: 8,
           backgroundColor: hexToRgba(neutralPalette[800], 0.72),
           boxShadow: darkSurfaces.subtle,
           '& .MuiOutlinedInput-notchedOutline': {
@@ -706,6 +765,14 @@ const DarkTheme = createTheme({
           '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
             borderColor: hexToRgba(secondaryPalette[400], 0.55),
           },
+        },
+      },
+    },
+    MuiCheckbox: {
+      styleOverrides: {
+        root: {
+          width: "20px",
+          height: "20px",
         },
       },
     },
@@ -722,7 +789,7 @@ const DarkTheme = createTheme({
     MuiAlert: {
       styleOverrides: {
         root: {
-          borderRadius: 12,
+          borderRadius: 8,
         },
         standardError: {
           border: `1px solid ${hexToRgba(errorPalette[500], 0.48)}`,
