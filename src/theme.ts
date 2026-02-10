@@ -305,7 +305,7 @@ const LightTheme = createTheme({
       styleOverrides: {
         root: {
           borderRadius: 8,
-          border: `1px solid ${hexToRgba(neutralPalette[200], 0.8)}`,
+          border: "none",
           boxShadow: lightSurfaces.elevated,
           backgroundColor: shadesPalette[0],
         },
@@ -607,7 +607,7 @@ const DarkTheme = createTheme({
       styleOverrides: {
         root: {
           borderRadius: 8,
-          border: `1px solid ${hexToRgba(neutralPalette[700], 0.7)}`,
+          border: "none",
           boxShadow: darkSurfaces.elevated,
         },
       },
